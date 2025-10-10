@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLayout from './components/layout/UserLayout';
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
         <Routes >
-            /*User Layout*/
+            {/* user layout */}
             <Route path="/" element={<UserLayout/>}></Route>
             
         </Routes>
