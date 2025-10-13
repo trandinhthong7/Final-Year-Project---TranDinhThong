@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FaSearch, FaTimes, FaXRay } from "react-icons/fa"
+import { FaSearch, FaTimes } from "react-icons/fa"
 
 const SearchBar = () => {
 
