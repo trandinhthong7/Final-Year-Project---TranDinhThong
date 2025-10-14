@@ -19,29 +19,29 @@ const NavBar = () => {
         <nav className="container mx-auto flex items-center justify-between py-4 px-6">
             {/* Left-Logo  */}
             <div>
-                <Link to={"/"} className="text-2xl font-medium text-[#004643] hover:text-[#00948d]">TDT-Football</Link>
+                <Link to={"/"} className="text-2xl font-medium text-[#001e1d] hover:text-[#00948d]">TDT-Football</Link>
             </div>
             {/* Center - Menu */}
             <div className="hidden md:flex space-x-6">
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Home</Link>
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Shoes</Link>
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Gloves</Link>
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Accessories</Link>              
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Futsal</Link>
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Booking</Link>
-                <Link to="" className=" text-[#004643] hover:text-[#00948d] text-sm font-medium uppercase">Academy</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Home</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Boots</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Gloves</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Accessories</Link>              
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Futsal</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Booking</Link>
+                <Link to="" className=" text-[#00001e1d4643] hover:text-[#00948d] text-sm font-medium uppercase">Academy</Link>
             </div>
             {/* Right - Icons */}
             <div className="flex items-center space-x-6">
-                <Link to="/profile"><FaUserCircle className="text-[#004643] hover:text-[#00948d] h-6 w-6"/></Link>
+                <Link to="/profile"><FaUserCircle className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/></Link>
                 <button onClick={toggleDrawer} className="relative">
-                  <FaShoppingCart className="text-[#004643] hover:text-[#00948d] h-6 w-6"/>
-                  <span className="absolute -top-2.5 -right-3 bg-[#004643] text-[#abd1c6] text-xs rounded-full px-1.5 py-0.5">4</span>
+                  <FaShoppingCart className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
+                  <span className="absolute -top-2.5 -right-3 bg-[#001e1d] text-[#abd1c6] text-xs rounded-full px-1.5 py-0.5">4</span>
                 </button>
               {/* search icon */}
-              <div className="overflow-hidden"><SearchBar/></div>
+              <div className="overflow-hidden text-[#001e1d]"><SearchBar/></div>
               <button onClick={toggleNavDrawer} className="md:hidden">
-                <FaBars className="text-[#004643] h-6 w-6"/>
+                <FaBars className="text-[#001e1d] h-6 w-6"/>
               </button>
             </div>
         </nav>
@@ -58,7 +58,7 @@ const NavBar = () => {
             <h2 className="text-xl text-[#abd1c6] font-semibold mb-4">Menu</h2>
             <nav>
               <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Home</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Shoes</Link>
+              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Boots</Link>
               <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Gloves</Link>
               <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Accessories</Link>
               <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Futsal</Link>

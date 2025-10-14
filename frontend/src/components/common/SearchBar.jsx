@@ -33,7 +33,7 @@ const SearchBar = () => {
                         {/* search icon */}
                         <button 
                         type="submit" 
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#004643] hover:text-[#00948d]">
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#001e1d] hover:text-[#00948d]">
                             <FaSearch className="h-6 w-6"/>
                         </button>
                     </div>
@@ -47,7 +47,7 @@ const SearchBar = () => {
                 </form>
             ) : (
                 <button onClick={handleSearchToggle} >
-                    <FaSearch className="text-[#004643] hover:text-[#00948d] h-6 w-6"/>
+                    <FaSearch className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
                  </button> 
                 )}
         </div>
