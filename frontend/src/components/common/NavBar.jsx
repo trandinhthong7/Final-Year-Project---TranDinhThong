@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import { FaUserCircle,FaShoppingCart,FaSearch, FaTimes, FaBars } from "react-icons/fa"
+import { FaUserCircle, FaTimes, FaBars } from "react-icons/fa"
 import SearchBar from './SearchBar'
 import CartDrawer from '../layout/CartDrawer'
 import { useState } from 'react'
+import { IoBagHandleOutline, IoPersonCircleOutline, IoPersonOutline } from 'react-icons/io5'
 
 const NavBar = () => {
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
@@ -16,10 +17,10 @@ const NavBar = () => {
   };
   return (
     <div>
-        <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+        <nav className="container mx-auto flex items-center justify-between py-4 px-2">
             {/* Left-Logo  */}
             <div>
-                <Link to={"/"} className="text-2xl font-medium text-[#001e1d] hover:text-[#00948d]">TDT-Football</Link>
+                <Link to={"/"} className="text-xl font-medium text-[#001e1d] hover:text-[#00948d] mx-4">TDT-Football</Link>
             </div>
             {/* Center - Menu */}
             <div className="hidden md:flex space-x-6">
@@ -32,10 +33,10 @@ const NavBar = () => {
                 <Link to="" className=" text-[#00001e1d4643] hover:text-[#00948d] text-sm font-medium uppercase">Academy</Link>
             </div>
             {/* Right - Icons */}
-            <div className="flex items-center space-x-6">
-                <Link to="/profile"><FaUserCircle className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/></Link>
+            <div className="flex items-center space-x-4 mx-4">
+                <Link to="/profile"><IoPersonOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/></Link>
                 <button onClick={toggleDrawer} className="relative">
-                  <FaShoppingCart className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
+                  <IoBagHandleOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
                   <span className="absolute -top-2.5 -right-3 bg-[#001e1d] text-[#abd1c6] text-xs rounded-full px-1.5 py-0.5">4</span>
                 </button>
               {/* search icon */}
