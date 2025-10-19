@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FaSearch, FaTimes } from "react-icons/fa"
+import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
 
 const SearchBar = () => {
 
@@ -34,7 +34,7 @@ const SearchBar = () => {
                         <button 
                         type="submit" 
                         className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#001e1d] hover:text-[#00948d]">
-                            <FaSearch className="h-6 w-6"/>
+                            <IoSearchOutline className="h-6 w-6"/>
                         </button>
                     </div>
 
@@ -42,12 +42,12 @@ const SearchBar = () => {
                     <button 
                     type="button" 
                     className="ml-2 text-[#abd1c6] hover:text-[#00948d]" onClick={handleSearchToggle}>
-                        <FaTimes className="h-6 w-6"/>
+                        <IoCloseOutline className="h-6 w-6"/>
                     </button>
                 </form>
             ) : (
                 <button onClick={handleSearchToggle} >
-                    <FaSearch className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
+                    <IoSearchOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
                  </button> 
                 )}
         </div>

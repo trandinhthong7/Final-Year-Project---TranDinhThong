@@ -1,5 +1,5 @@
-import { FaTimes } from "react-icons/fa";
 import CartItems from "../cart/CartItems";
+import { IoCloseOutline } from "react-icons/io5";
 
 const CartDrawer = ({drawerOpen, toggleDrawer}) => {
     
@@ -10,7 +10,7 @@ const CartDrawer = ({drawerOpen, toggleDrawer}) => {
         {/* close button  */}
         <div className="flex justify-end p-4">
             <button onClick={toggleDrawer}>
-                <FaTimes className="h-6 w-6 text-[#abd1c6]"/>
+                <IoCloseOutline className="h-6 w-6 text-[#abd1c6]"/>
             </button>
         </div>
         {/* Cart content */}

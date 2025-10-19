@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { FaUserCircle, FaTimes, FaBars } from "react-icons/fa"
 import SearchBar from './SearchBar'
 import CartDrawer from '../layout/CartDrawer'
 import { useState } from 'react'
-import { IoBagHandleOutline, IoPersonCircleOutline, IoPersonOutline } from 'react-icons/io5'
+import { HiOutlineBars3 } from "react-icons/hi2";
+import { IoBagHandleOutline, IoCloseOutline, IoPersonOutline } from 'react-icons/io5'
 
 const NavBar = () => {
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
@@ -42,7 +42,7 @@ const NavBar = () => {
               {/* search icon */}
               <div className="overflow-hidden text-[#001e1d]"><SearchBar/></div>
               <button onClick={toggleNavDrawer} className="md:hidden">
-                <FaBars className="text-[#001e1d] h-6 w-6"/>
+                <HiOutlineBars3 className="text-[#001e1d] h-6 w-6"/>
               </button>
             </div>
         </nav>
@@ -53,7 +53,7 @@ const NavBar = () => {
         <div 
         className={`fixed top-0 left-0 w-3/4 sm:w-1/2 md:w-1/3 h-full bg-[#004643] shadow-lg transform transition-transform duration-300 z-50 ${navDrawerOpen ? "translate-x-0" : " -translate-x-full"}`} >
           <div className="flex justify-end p-4">
-            <button onClick={toggleNavDrawer}><FaTimes className="h-6 w-6 text-[#abd1c6]"/></button>
+            <button onClick={toggleNavDrawer}><IoCloseOutline className="h-6 w-6 text-[#abd1c6]"/></button>
           </div>
           <div className="p-4">
             <h2 className="text-xl text-[#abd1c6] font-semibold mb-4">Menu</h2>

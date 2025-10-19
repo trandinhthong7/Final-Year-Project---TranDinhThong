@@ -3,10 +3,19 @@ import Bell from "../../assets/Carousel/adidas_Belligham_predator25.jpg";
 import nikeM from "../../assets/Carousel/nike_mbappe_mercurial1025_all-(2).webp";
 import nikeQ4 from "../../assets/Carousel/nike_Q4_mad_voltage25.webp";
 import puma from "../../assets/Carousel/puma_hot_pursuit25_Q4.jpg";
+import Bellmb from "../../assets/Carousel/mobile/adidas_Belligham_predator25_MB.webp";
+import nikeMmb from "../../assets/Carousel/mobile/nike_mbappe_mercurial1025_MB_ALL.webp";
+import nikeQ4mb from "../../assets/Carousel/mobile/nike_Q4_mad_voltage25_MB.webp";
+import pumaMb from "../../assets/Carousel/mobile/puma_hot_pursuit25_Q4_MB.webp";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const Carousel = () => {
-  const slideImages = [Bell, nikeM, nikeQ4, puma];
+  const slideImages = [
+  { desktop: Bell, mobile: Bellmb, alt: "Adidas Bellingham Predator" },
+  { desktop: nikeM, mobile: nikeMmb, alt: "Nike Mbappe Mercurial" },
+  { desktop: nikeQ4, mobile: nikeQ4mb, alt: "Nike Q4 Mad Voltage" },
+  { desktop: puma, mobile: pumaMb, alt: "Puma Hot Pursuit" },];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -27,12 +36,24 @@ const Carousel = () => {
     <div className="overflow-hidden relative group object-cover">
       <div className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {slideImages.map((imgSrc, index) => (
-          <img
-            key={index}
-            src={imgSrc}
-            alt={`Slide ${index + 1}`}
-            className="min-w-full h-auto object-cover"/>))}
+        {slideImages.map((slideImages, index) => (
+          <div key={index} className="min-w-full">
+      <picture>
+        {/*Desktop*/}
+        <source media="(min-width: 768px)" srcSet={slideImages.desktop} />
+        
+        {/*Mobile*/}
+        <source media="(max-width: 767px)" srcSet={slideImages.mobile} />
+        
+        {/*fallback*/}
+        <img
+          src={slideImages.mobile}
+          alt={slideImages.alt}
+          className="w-full h-auto object-cover"
+        />
+      </picture>
+    </div>
+          ))}
       </div>
 
       <div
