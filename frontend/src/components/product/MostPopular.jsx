@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import adidasF50 from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ag-purple.jpg';
 import adidasF50ll from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ll-fg-purp.jpg';
 import adidasYamal from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ll-fglamine-yamal-unity-purple-white-lucid-lemon-0.webp';
@@ -8,6 +8,7 @@ import puma from '../../assets/Most Popular/boots/bota-puma-zukunftige-8-pro-fg-
 import adidasgloves from '../../assets/Most Popular/gloves/guantes-adidas-copa-match-fingersave-black-0.webp';
 import adidaspredator from '../../assets/Most Popular/gloves/guantes-adidas-predator-competition-lucid-lemon-white-black-0.webp';
 import ulsports from '../../assets/Most Popular/gloves/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0.webp';
+import { Link } from 'react-router-dom';
 
 const MostPopular = () => {
     const products = [
@@ -20,7 +21,7 @@ const MostPopular = () => {
             images: adidasF50
         },
         {
-            id: 6,
+            id: 2,
             name: "adidas F50 Elite LL Football Boots",
             price: 269.99,
             category: "BOOTS",
@@ -28,7 +29,7 @@ const MostPopular = () => {
             images: adidasF50ll
         },
         {
-            id: 7,
+            id: 3,
             name: "adidas F50 Elite LL FG Lamine Yamal Football Boots",
             price: 279.99,
             category: "BOOTS",
@@ -36,7 +37,7 @@ const MostPopular = () => {
             images: adidasYamal
         },
         {
-            id: 8,
+            id: 4,
             name: "Nike Air Zoom Mercurial Vapor 16 Pro FG Football Boots",
             price: 109.99,
             category: "BOOTS",
@@ -44,7 +45,7 @@ const MostPopular = () => {
             images: nikeMercurial
         },
         {
-            id: 9,
+            id: 5,
             name: "Nike Phantom 6 Low Pro FG Football Boots",
             price: 111.99,
             category: "BOOTS",
@@ -52,7 +53,7 @@ const MostPopular = () => {
             images: nikePhantom
         },
         {
-            id: 2,
+            id: 6,
             name: "Nike Air Zoom Mercurial Vapor 16 Pro AG Football Boots",
             price: 269.99,
             category: "BOOTS",
@@ -60,7 +61,7 @@ const MostPopular = () => {
             images: puma
         },
         {
-            id: 3,
+            id: 7,
             name: "Goalkeeper Gloves Professional",
             price: 89.99,
             category: "GLOVES",
@@ -68,7 +69,7 @@ const MostPopular = () => {
             images: adidasgloves
         },
         {
-            id: 4,
+            id: 8,
             name: "Futsal Shoes Lightweight",
             price: 129.99,
             category: "GLOVES",
@@ -76,7 +77,31 @@ const MostPopular = () => {
             images: adidaspredator
         },
         {
-            id: 5,
+            id: 9,
+            name: "Football Socks Pack",
+            price: 24.99,
+            category: "ACCESSORIES",
+            tag: "new",
+            images: ulsports
+        },
+        {
+            id: 10,
+            name: "Goalkeeper Gloves Professional",
+            price: 89.99,
+            category: "GLOVES",
+            tag: "new",
+            images: adidasgloves
+        },
+        {
+            id: 11,
+            name: "Futsal Shoes Lightweight",
+            price: 129.99,
+            category: "GLOVES",
+            tag: "popular",
+            images: adidaspredator
+        },
+        {
+            id: 12,
             name: "Football Socks Pack",
             price: 24.99,
             category: "ACCESSORIES",
@@ -85,20 +110,155 @@ const MostPopular = () => {
         }
     ];
     
-    const categories = ['BOOTS', 'GLOVES', 'FUTSAL', 'ACCESSORIES'];
+    // State declarations
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('BOOTS');
     const scrollContainerRef = useRef(null);
-
-    // Filter products based on selected category
-    const filteredProducts = products.filter(product => product.category === selectedCategory);
+    const velocityRef = useRef(0);
+    const lastMoveRef = useRef(0);
+    const animationRef = useRef(null);
+    const scrollTimeoutRef = useRef(null);
+    
+    const categories = ['BOOTS', 'GLOVES', 'FUTSAL', 'ACCESSORIES'];
+    
+    // Function to detect which product is at the leftmost position
+    const updateCategoryBasedOnScroll = useCallback(() => {
+        if (!scrollContainerRef.current) return;
+        
+        const container = scrollContainerRef.current;
+        const containerRect = container.getBoundingClientRect();
+        const containerLeft = containerRect.left;
+        
+        // Find the first visible product
+        let closestProduct = null;
+        let minDistance = Infinity;
+        
+        products.forEach((product) => {
+            const element = container.querySelector(`[data-product-id="${product.id}"]`);
+            if (element) {
+                const elementRect = element.getBoundingClientRect();
+                const distance = Math.abs(elementRect.left - containerLeft);
+                
+                // Find the product closest to the left edge
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestProduct = product;
+                }
+            }
+        });
+        
+        // Update category if the closest product is different from current category
+        if (closestProduct && closestProduct.category !== selectedCategory) {
+            setSelectedCategory(closestProduct.category);
+        }
+    }, [products, selectedCategory]);
+    
+    // Add scroll event listener to detect category changes
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+        
+        const handleScroll = () => {
+            // Clear existing timeout
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+            
+            // Set new timeout to update category after scrolling stops
+            scrollTimeoutRef.current = setTimeout(() => {
+                updateCategoryBasedOnScroll();
+            }, 150); // Wait 150ms after scroll stops
+        };
+        
+        container.addEventListener('scroll', handleScroll);
+        
+        return () => {
+            container.removeEventListener('scroll', handleScroll);
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+        };
+    }, [updateCategoryBasedOnScroll]);
+    
+    // Drag to scroll functionality with momentum
+    const handleMouseDown = useCallback((e) => {
+        if (scrollContainerRef.current) {
+            setIsDragging(true);
+            setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+            setScrollLeft(scrollContainerRef.current.scrollLeft);
+            velocityRef.current = 0;
+            lastMoveRef.current = e.pageX;
+            
+            // Cancel any ongoing animation
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+            
+            // Disable smooth scrolling during drag
+            scrollContainerRef.current.style.scrollBehavior = 'auto';
+        }
+    }, []);
+    
+    const handleMouseMove = useCallback((e) => {
+        if (!isDragging || !scrollContainerRef.current) return;
+        
+        e.preventDefault();
+        const x = e.pageX - scrollContainerRef.current.offsetLeft;
+        const walk = (x - startX) * 1.5; // Multiply by 1.5 for more responsive dragging
+        
+        // Calculate velocity for momentum
+        velocityRef.current = e.pageX - lastMoveRef.current;
+        lastMoveRef.current = e.pageX;
+        
+        scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    }, [isDragging, startX, scrollLeft]);
+    
+    const applyMomentum = useCallback(() => {
+        if (!scrollContainerRef.current) return;
+        
+        const friction = 0.95; // Friction factor
+        velocityRef.current *= friction;
+        
+        if (Math.abs(velocityRef.current) > 0.5) {
+            scrollContainerRef.current.scrollLeft -= velocityRef.current;
+            animationRef.current = requestAnimationFrame(applyMomentum);
+        } else {
+            // Re-enable smooth scrolling after momentum ends
+            if (scrollContainerRef.current) {
+                scrollContainerRef.current.style.scrollBehavior = 'smooth';
+            }
+        }
+    }, []);
+    
+    const handleMouseUp = useCallback(() => {
+        setIsDragging(false);
+        
+        // Apply momentum scrolling
+        if (Math.abs(velocityRef.current) > 1) {
+            applyMomentum();
+        } else if (scrollContainerRef.current) {
+            scrollContainerRef.current.style.scrollBehavior = 'smooth';
+        }
+    }, [applyMomentum]);
+    
+    const handleMouseLeave = useCallback(() => {
+        if (isDragging) {
+            setIsDragging(false);
+            if (scrollContainerRef.current) {
+                scrollContainerRef.current.style.scrollBehavior = 'smooth';
+            }
+        }
+    }, [isDragging]);
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
-        // Filter products by category and scroll to first item
-        const filteredProducts = products.filter(product => product.category === category);
-        if (filteredProducts.length > 0 && scrollContainerRef.current) {
+        // Find the first product of the selected category and scroll to it
+        const firstProduct = products.find(product => product.category === category);
+        if (firstProduct && scrollContainerRef.current) {
             setTimeout(() => {
-                const firstElement = scrollContainerRef.current.querySelector(`[data-product-id="${filteredProducts[0].id}"]`);
+                const firstElement = scrollContainerRef.current.querySelector(`[data-product-id="${firstProduct.id}"]`);
                 if (firstElement) {
                     firstElement.scrollIntoView({
                         behavior: 'smooth',
@@ -116,7 +276,7 @@ const MostPopular = () => {
             
             {/* Categories navigation */}
             <div>
-                <nav className="sticky top-0 flex justify-center space-x-6 md:space-x-8">
+                <nav className="sticky top-0 flex justify-center space-x-4 md:space-x-8 mb-5">
                     {categories.map((category) => (
                         <button
                             key={category}
@@ -131,7 +291,7 @@ const MostPopular = () => {
                                 hover:text-[#00948d]
                                 ${
                                     selectedCategory === category
-                                    ? 'border-b-2 border-black text-[#001e1d]'
+                                    ? 'border-b-2 border-[#001e1d] text-[#001e1d]'
                                     : 'border-b-2 border-transparent text-[#00948d]'
                                 }
                             `}
@@ -145,28 +305,30 @@ const MostPopular = () => {
             {/* Horizontal scrollable product list */}
             <div 
                 ref={scrollContainerRef}
-                className="flex space-x-4 px-4 py-6 overflow-x-auto scrollbar-hide"
-                style={{ scrollBehavior: 'smooth' }}
-            >
-                {filteredProducts.map((product) => (
-                    <div 
-                        key={product.id}
+                className={`container flex mx-auto space-x-6 overflow-x-scroll relative select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+                style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}>
+                {products.map((product) => (
+                    <div key={product.id} 
                         data-product-id={product.id}
-                        className="flex-shrink-0 w-64 bg-[#001e1d] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <div className="relative">
-                            <img 
-                                src={product.images} 
-                                alt={product.name}
-                                className="w-full h-48 object-cover rounded-t-lg"
-                            />
-                            <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">
-                                {product.tag.toUpperCase()}
-                            </span>
-                        </div>
-                        <div className="p-2 text-left">
-                            <h3 className=" text-lg mb-2 text-[#abd1c6]">{product.name}</h3>
-                            <p className="text-xl font-bold text-[#abd1c6]">${product.price}</p>
+                        className="min-w-[90%] sm:min-w-[50%] lg:min-w-[20%] relative pointer-events-none">
+                        <img 
+                            src={product.images} 
+                            alt={product.name}
+                            className="rounded-xl object-cover"
+                            draggable="false"/>
+                        {/* <span className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-red-500 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-xs sm:text-sm font-bold">
+                            {product.tag.toUpperCase()}
+                        </span> */}
+                        
+                        <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-[#001e1d] p-4 rounded-b-lg pointer-events-auto">
+                            <Link to={`/product/${product.id}`} className="block">
+                                <h4 className="font-medium">{product.name}</h4>
+                                <p className="mt-1">${product.price}</p>
+                            </Link>
                         </div>
                     </div>
                 ))}
