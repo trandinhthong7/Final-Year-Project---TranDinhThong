@@ -314,7 +314,7 @@ const MostPopular = () => {
                 {products.map((product) => (
                     <div key={product.id} 
                         data-product-id={product.id}
-                        className="min-w-[90%] sm:min-w-[50%] lg:min-w-[20%] relative pointer-events-none">
+                        className="min-w-[60%] sm:min-w-[50%] lg:min-w-[26%] relative pointer-events-none">
                         <img 
                             src={product.images} 
                             alt={product.name}
@@ -324,8 +324,8 @@ const MostPopular = () => {
                             {product.tag.toUpperCase()}
                         </span> */}
                         
-                        <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-[#001e1d] p-4 rounded-b-lg pointer-events-auto">
-                            <Link to={`/product/${product.id}`} className="block">
+                        <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-[#001e1d] p-4 rounded pointer-events-auto">
+                            <Link to={`/product/${product.id}`} className="block text-left">
                                 <h4 className="font-medium">{product.name}</h4>
                                 <p className="mt-1">${product.price}</p>
                             </Link>

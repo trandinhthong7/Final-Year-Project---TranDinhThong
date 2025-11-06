@@ -1,6 +1,7 @@
 import Carousel from '../components/layout/Carousel'
 import NewCollection from '../components/product/NewCollection'
 import MostPopular from '../components/product/MostPopular'
+import ProductDetail from '../components/product/ProductDetail'
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
         <Carousel/>
         <NewCollection/>
         <MostPopular/>
+        <ProductDetail/>
     </div>
   )
 }
