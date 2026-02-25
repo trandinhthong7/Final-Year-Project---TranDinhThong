@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 
 const testProduct = {
   name: "Sample Product",
@@ -21,8 +22,24 @@ const testProduct = {
     },
   ],
 };
+
+const similarProducts = [
+  {
+    id: 1,
+    name: "Product 1",
+    price: 59.99,
+    image: [{url: "https://www.futbolemotion.com/imagesarticulos/232529/750/bota-nike-tiempo-legend-10-elite-fg-black-black-deep-jungle-0.webp"}],
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    price: 59.99,
+    image: [{url: "https://www.futbolemotion.com/imagesarticulos/232529/750/bota-nike-tiempo-legend-10-elite-fg-black-black-deep-jungle-0.webp"}],
+  },
+];
+
 const ProductDetail = () => {
-  const [mainImage, setMainImage] = useState("");
+  const [mainImage, setMainImage] = useState(testProduct?.image?.[0]?.url || "");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [Quantity, setQuantity] = useState(1);
@@ -32,7 +49,7 @@ const ProductDetail = () => {
     if(testProduct?.image?.length >0){
       setMainImage(testProduct.image[0].url);
     }
-  }, [testProduct]);
+  }, []);
 
   // Check if button should be disabled based on selections
   const isButtonDisabled = !selectedSize || !selectedColor || isAddingToCart;
@@ -59,7 +76,7 @@ const ProductDetail = () => {
     
   return (
     <div className="p-6">
-        <h2 className='text-center pb-4 text-5xl text-[#001e1d] font-bold mt-10'>Best Seller</h2>
+        <h2 className='text-center pb-4 text-3xl text-[#001e1d] font-bold'>BEST SELLER</h2>
       <div className="max-w-6xl mx-auto bg-[#004643] p-8 rounded-lg">
         <div className="flex flex-col md:flex-row">
           {/* left thumbnail */}
@@ -110,21 +127,19 @@ const ProductDetail = () => {
             </p>
             <p className="mb-4 text-[#abd1c6]">{testProduct.description}</p>
             <div className="mb-4">
-              <p>
-                <div className=" flex gap-2 mt-2">
-                  {testProduct.color.map((color) => (
-                    <button
-                      onClick={()=>setSelectedColor(color)}
-                      key={color}
-                      className={`w-8 h-8 rounded-full ${selectedColor===color ? 'border-4 border-[#abd1c6]' : ''}`}
-                      style={{
-                        backgroundColor: color.toLowerCase(),
-                        filter: "brightness(0.5)",
-                      }}
-                    ></button>
-                  ))}
-                </div>
-              </p>
+              <div className=" flex gap-2 mt-2">
+                {testProduct.color.map((color) => (
+                  <button
+                    onClick={()=>setSelectedColor(color)}
+                    key={color}
+                    className={`w-8 h-8 rounded-full ${selectedColor===color ? 'border-4 border-[#abd1c6]' : ''}`}
+                    style={{
+                      backgroundColor: color.toLowerCase(),
+                      filter: "brightness(0.5)",
+                    }}
+                  ></button>
+                ))}
+              </div>
             </div>
             <div className="text-[#abd1c6]">
               <p>Size:</p>
@@ -140,9 +155,9 @@ const ProductDetail = () => {
               <div className="mb-6">
                 <p>Quantity:</p>
                 <div className="flex items-center space-x-4 mt-2">
-                  <button onClick={()=>handleQuantityChange("minus")} className="bg-[#00948d] px-2 py-1 rounded text-lg">-</button>
+                  <button onClick={()=>handleQuantityChange("minus")} className="bg-[#abd1c6] px-2 py-1 rounded text-[#001e1d]">-</button>
                   <span className="text-lg">{Quantity}</span>
-                  <button onClick={()=>handleQuantityChange("plus")}  className="bg-[#00948d] px-2 py-1 rounded text-lg">+</button>
+                  <button onClick={()=>handleQuantityChange("plus")}  className="bg-[#abd1c6] px-2 py-1 rounded text-[#001e1d]">+</button>
                 </div>
               </div>
 
@@ -156,7 +171,14 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <div className="mt-10">
+          <h2 className="text-2xl text-center font-bold mb-4">
+              YOU MAY ALSO LIKE
+          </h2>
+          <ProductGrid products={similarProducts}/>
+        </div>
     </div>
+    
   );
 };
 

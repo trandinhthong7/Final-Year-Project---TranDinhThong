@@ -270,13 +270,13 @@ const MostPopular = () => {
     };
 
   return (
-    <section>
-        <div className="container mx-auto text-center mb-10 relative">
-            <h2 className='text-center pb-4 text-5xl text-[#001e1d] font-bold mt-10'>MOST POPULAR</h2>
+    <section className="py-10">
+        <div className="container mx-auto px-4 relative">
+            <h2 className='text-center text-3xl text-[#001e1d] font-bold tracking-wider'>MOST POPULAR</h2>
             
             {/* Categories navigation */}
             <div>
-                <nav className="sticky top-0 flex justify-center space-x-4 md:space-x-8 mb-5">
+                <nav className="sticky top-0 z-10 backdrop-blur-md flex justify-center space-x-6 py-2">
                     {categories.map((category) => (
                         <button
                             key={category}
@@ -284,7 +284,8 @@ const MostPopular = () => {
                             className={`
                                 pb-1
                                 font-medium
-                                text-lg
+                                text-medium
+                                md:text-lg
                                 flex-shrink-0 
                                 transition-colors
                                 duration-200
@@ -305,7 +306,9 @@ const MostPopular = () => {
             {/* Horizontal scrollable product list */}
             <div 
                 ref={scrollContainerRef}
-                className={`container flex mx-auto space-x-6 overflow-x-scroll relative select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+                className={`flex gap-4 overflow-x-scroll pb-10 hide-scrollbar select-none ${
+                        isDragging ? "cursor-grabbing" : "cursor-grab"
+                    }`}
                 style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
@@ -314,21 +317,26 @@ const MostPopular = () => {
                 {products.map((product) => (
                     <div key={product.id} 
                         data-product-id={product.id}
-                        className="min-w-[60%] sm:min-w-[50%] lg:min-w-[26%] relative pointer-events-none">
+                        className="min-w-[280px] md:min-w-[320px] bg-[#004643] rounded-lg shadow-sm flex flex-col overflow-hidden group">
                         <img 
                             src={product.images} 
                             alt={product.name}
-                            className="rounded-xl object-cover"
+                            className="relative bg-[#004643] aspect-square flex items-center justify-center p-4"
                             draggable="false"/>
-                        {/* <span className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-red-500 text-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-xs sm:text-sm font-bold">
-                            {product.tag.toUpperCase()}
-                        </span> */}
+                        <div className="p-4 flex flex-col flex-grow">
+                            <div className="flex mb-2">
+                                <span className="bg-[#f9bc60] text-white text-[10px] font-black px-2 py-0.5 uppercase">
+                                    {product.tag.toUpperCase()}
+                                </span>
+                            </div>
                         
-                        <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-[#001e1d] p-4 rounded pointer-events-auto">
-                            <Link to={`/product/${product.id}`} className="block text-left">
-                                <h4 className="font-medium">{product.name}</h4>
-                                <p className="mt-1">${product.price}</p>
-                            </Link>
+                            <div className="text-sm font-bold text-[#abd1c6] leading-tight uppercase group-hover:text-[#00948d] transition-colors">
+                            
+                                <Link to={`/product/${product.id}`} className="block text-left">
+                                    <h4 className="font-medium ">{product.name.toUpperCase()}</h4>
+                                    <p className="mt-1">${product.price}</p>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 ))}
