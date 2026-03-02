@@ -7,14 +7,17 @@ const ProductGrid = ({ products = [] }) => {
         {/* Product Item */}
         {products.map((product, index) => (
             <Link key={product.id || index} to={`/product/${product.id}`} className="block">
-                <div className="bg-amber-50 p-4 rounded-lg">
+                <div className="bg-[#004643] p-4 rounded-lg">
+                  <div className="w-full h-96 mb-2 ">
                     <img
                       src={product.image?.[0]?.url || null}
                       alt={product.name || "Product"}
-                      className="w-full h-96 object-cover rounded-lg"
+                      className="w-full h-full object-cover rounded-lg"
                     />
-                    <h3 className="mt-2 text-sm font-medium">{product.name}</h3>
-                    <p className="text-sm text-gray-600">${product.price}</p>
+                  </div>
+                    
+                    <h3 className="mb-1 text-md font-bold text-[#abd1c6]">{product.name}</h3>
+                    <p className="text-sm text-[#abd1c6] font-medium tracking-tighter">${product.price}</p>
                 </div>
             </Link>
         ))}

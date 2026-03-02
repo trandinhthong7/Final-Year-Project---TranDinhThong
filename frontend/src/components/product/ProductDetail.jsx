@@ -116,7 +116,7 @@ const ProductDetail = () => {
 
           {/* right side */}
           <div className="md:w-1/2 md:ml-10">
-            <h1 className="text-2xl text-[#fffffe] md:text-3xl font-semibold mb-2">
+            <h1 className="text-2xl text-[#fffffe] font-bold">
               {testProduct.name}
             </h1>
             <p className="text-lg  text-[#abd1c6] mb-1 line-through">

@@ -16,97 +16,135 @@ const MostPopular = () => {
             id: 1,
             name: "adidas F50 Elite AG Football Boots",
             price: 269.99,
+            originalPrice: 329.99,
+            discount: 18,
             category: "BOOTS",
-            tag: "deal",
-            images: adidasF50
+            tags: ["deal", "new"],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: adidasF50,
+            colorVariants: [adidasF50, adidasF50ll, adidasYamal]
         },
         {
             id: 2,
             name: "adidas F50 Elite LL Football Boots",
             price: 269.99,
+            originalPrice: 319.99,
+            discount: 15,
             category: "BOOTS",
-            tag: "deal",
-            images: adidasF50ll
+            tags: ["deal"],
+            sizes: [40, 41, 42, 43],
+            images: adidasF50ll,
+            colorVariants: [adidasF50ll, adidasF50]
         },
         {
             id: 3,
             name: "adidas F50 Elite LL FG Lamine Yamal Football Boots",
             price: 279.99,
+            originalPrice: 349.99,
+            discount: 20,
             category: "BOOTS",
-            tag: "deal",
-            images: adidasYamal
+            tags: ["deal", "new"],
+            sizes: [38, 39, 40, 41, 42],
+            images: adidasYamal,
+            colorVariants: [adidasYamal, adidasF50ll, adidasF50]
         },
         {
             id: 4,
             name: "Nike Air Zoom Mercurial Vapor 16 Pro FG Football Boots",
             price: 109.99,
+            originalPrice: 149.99,
+            discount: 27,
             category: "BOOTS",
-            tag: "deal",
-            images: nikeMercurial
+            tags: ["deal"],
+            sizes: [39, 40, 41, 42, 43, 44, 45],
+            images: nikeMercurial,
+            colorVariants: [nikeMercurial, nikePhantom]
         },
         {
             id: 5,
             name: "Nike Phantom 6 Low Pro FG Football Boots",
             price: 111.99,
+            originalPrice: 139.99,
+            discount: 20,
             category: "BOOTS",
-            tag: "deal",
-            images: nikePhantom
+            tags: ["deal", "children"],
+            sizes: [36, 37, 38, 39, 40],
+            images: nikePhantom,
+            colorVariants: [nikePhantom, nikeMercurial]
         },
         {
             id: 6,
-            name: "Nike Air Zoom Mercurial Vapor 16 Pro AG Football Boots",
+            name: "Puma Future 8 Pro FG AG Football Boots",
             price: 269.99,
+            originalPrice: 329.99,
+            discount: 18,
             category: "BOOTS",
-            tag: "deal",
-            images: puma
+            tags: ["deal"],
+            sizes: [40, 41, 42, 43, 44],
+            images: puma,
+            colorVariants: [puma]
         },
         {
             id: 7,
             name: "Goalkeeper Gloves Professional",
             price: 89.99,
             category: "GLOVES",
-            tag: "new",
-            images: adidasgloves
+            tags: ["new"],
+            sizes: [7, 8, 9, 10, 11],
+            images: adidasgloves,
+            colorVariants: [adidasgloves, adidaspredator]
         },
         {
             id: 8,
             name: "Futsal Shoes Lightweight",
             price: 129.99,
             category: "GLOVES",
-            tag: "popular",
-            images: adidaspredator
+            tags: ["children", "new"],
+            sizes: [6, 7, 8, 9],
+            images: adidaspredator,
+            colorVariants: [adidaspredator, adidasgloves]
         },
         {
             id: 9,
             name: "Football Socks Pack",
             price: 24.99,
             category: "ACCESSORIES",
-            tag: "new",
-            images: ulsports
+            tags: ["new"],
+            sizes: ["S", "M", "L", "XL"],
+            images: ulsports,
+            colorVariants: [ulsports]
         },
         {
             id: 10,
             name: "Goalkeeper Gloves Professional",
             price: 89.99,
             category: "GLOVES",
-            tag: "new",
-            images: adidasgloves
+            tags: ["new"],
+            sizes: [7, 8, 9, 10],
+            images: adidasgloves,
+            colorVariants: [adidasgloves, adidaspredator]
         },
         {
             id: 11,
             name: "Futsal Shoes Lightweight",
             price: 129.99,
             category: "GLOVES",
-            tag: "popular",
-            images: adidaspredator
+            tags: ["children"],
+            sizes: [6, 7, 8, 9, 10],
+            images: adidaspredator,
+            colorVariants: [adidaspredator, adidasgloves]
         },
         {
             id: 12,
             name: "Football Socks Pack",
             price: 24.99,
             category: "ACCESSORIES",
-            tag: "new",
-            images: ulsports
+            tags: ["new", "deal"],
+            originalPrice: 34.99,
+            discount: 29,
+            sizes: ["S", "M", "L"],
+            images: ulsports,
+            colorVariants: [ulsports]
         }
     ];
     
@@ -269,10 +307,27 @@ const MostPopular = () => {
         }
     };
 
+    // Helper function to get tag style
+    const getTagStyle = (tag) => {
+        switch(tag) {
+            case 'deal':
+                return 'border-[#f9bc60] text-[#f9bc60]';
+            case 'new':
+                return 'border-red-500 text-red-500';
+            case 'children':
+                return 'border-[#abd1c6] text-[#abd1c6]';
+            default:
+                return 'border-[#abd1c6] text-[#abd1c6]';
+        }
+    };
+
+    // Check if product has deal tag
+    const hasDealTag = (tags) => tags.includes('deal');
+
   return (
     <section className="py-10">
         <div className="container mx-auto px-4 relative">
-            <h2 className='text-center text-3xl text-[#001e1d] font-bold tracking-wider'>MOST POPULAR</h2>
+            <h2 className='text-center text-3xl text-[#001e1d] font-bold'>MOST POPULAR</h2>
             
             {/* Categories navigation */}
             <div>
@@ -315,30 +370,96 @@ const MostPopular = () => {
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseLeave}>
                 {products.map((product) => (
-                    <div key={product.id} 
+                    <Link 
+                        to={`/product/${product.id}`} 
+                        key={product.id} 
                         data-product-id={product.id}
-                        className="min-w-[280px] md:min-w-[320px] bg-[#004643] rounded-lg shadow-sm flex flex-col overflow-hidden group">
-                        <img 
-                            src={product.images} 
-                            alt={product.name}
-                            className="relative bg-[#004643] aspect-square flex items-center justify-center p-4"
-                            draggable="false"/>
-                        <div className="p-4 flex flex-col flex-grow">
-                            <div className="flex mb-2">
-                                <span className="bg-[#f9bc60] text-white text-[10px] font-black px-2 py-0.5 uppercase">
-                                    {product.tag.toUpperCase()}
-                                </span>
-                            </div>
-                        
-                            <div className="text-sm font-bold text-[#abd1c6] leading-tight uppercase group-hover:text-[#00948d] transition-colors">
+                        className="min-w-[280px] md:min-w-[320px] rounded-lg shadow-sm flex flex-col overflow-hidden group relative"
+                    >
+                        {/* Part 1: Image */}
+                        <div className="relative aspect-square">
+                            <img 
+                                src={product.images} 
+                                alt={product.name}
+                                className="w-full h-full object-cover rounded-lg"
+                                draggable="false"
+                            />
                             
-                                <Link to={`/product/${product.id}`} className="block text-left">
-                                    <h4 className="font-medium ">{product.name.toUpperCase()}</h4>
-                                    <p className="mt-1">${product.price}</p>
-                                </Link>
+                            {/* Part 2: Overlay with product info */}
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001e1d] via-[#001e1d]/90 to-transparent rounded-b-lg">
+                                {/* Color variants & Sizes - hidden by default, show on hover */}
+                                <div className="px-3 pt-8 pb-2 transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                    {/* Color variant images */}
+                                    {product.colorVariants && product.colorVariants.length > 1 && (
+                                        <div className="flex gap-2 mb-2">
+                                            {product.colorVariants.map((variant, index) => (
+                                                <div 
+                                                    key={index}
+                                                    className="w-10 h-10 rounded-md overflow-hidden border-2 border-white/50 hover:border-[#f9bc60] transition-colors cursor-pointer"
+                                                >
+                                                    <img 
+                                                        src={variant} 
+                                                        alt={`Color ${index + 1}`}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                    
+                                    {/* Sizes */}
+                                    <div className="flex flex-wrap gap-1 mb-2">
+                                        {product.sizes.map((size, index) => (
+                                            <span 
+                                                key={index}
+                                                className="text-[10px] px-2 py-1 bg-[#004643] text-[#abd1c6] rounded hover:bg-[#f9bc60] hover:text-[#001e1d] transition-colors cursor-pointer"
+                                            >
+                                                {size}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+                                {/* Name, Price, Tags - always visible, moves up on hover */}
+                                <div className="px-3 pb-3 transform group-hover:-translate-y-2 transition-transform duration-300">
+                                    {/* Tags */}
+                                    <div className="flex gap-1 mb-2 flex-wrap">
+                                        {product.tags.map((tag, index) => (
+                                            <span 
+                                                key={index}
+                                                className={`
+                                                    text-[10px] font-black px-2 py-0.5 uppercase rounded-full border-2 bg-transparent
+                                                    ${getTagStyle(tag)}
+                                                `}
+                                            >
+                                                {tag.toUpperCase()}
+                                            </span>
+                                        ))}
+                                    </div>
+                                
+                                    {/* Name with ellipsis */}
+                                    <h4 className="font-medium text-[#fffffe] text-sm leading-tight line-clamp-2 overflow-hidden">
+                                        {product.name.toUpperCase()}
+                                    </h4>
+                                    
+                                    {/* Price section */}
+                                    <div className="mt-2 flex items-center gap-2 flex-wrap">
+                                        {hasDealTag(product.tags) && product.originalPrice ? (
+                                            <>
+                                                <p className="font-bold text-[#f9bc60]">${product.price}</p>
+                                                <p className="font-light text-[#abd1c6]/60 line-through text-sm">${product.originalPrice}</p>
+                                                <span className="text-xs font-bold text-[#004643] bg-[#f9bc60] px-1.5 py-0.5 rounded">
+                                                    -{product.discount}%
+                                                </span>
+                                            </>
+                                        ) : (
+                                            <p className="font-light text-[#abd1c6]">${product.price}</p>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
