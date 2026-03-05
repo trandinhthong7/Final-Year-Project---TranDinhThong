@@ -88,7 +88,7 @@ const NewCollection = () => {
     }, [isDragging]);
 
     return (
-        <section className="py-8 px-4 lg:px-0">
+        <section className="py-8 px-4 lg:px-0 mt-5">
             <h1 className="text-center pb-4 text-3xl text-[#001e1d] font-bold ">NEW COLLECTIONS</h1>
             <div 
                 ref={scrollContainerRef}

@@ -75,8 +75,7 @@ const ProductDetail = () => {
     };
     
   return (
-    <div className="p-6">
-        <h2 className='text-center pb-4 text-3xl text-[#001e1d] font-bold'>BEST SELLER</h2>
+    <div className="p-4">
       <div className="max-w-6xl mx-auto bg-[#004643] p-8 rounded-lg">
         <div className="flex flex-col md:flex-row">
           {/* left thumbnail */}
@@ -171,8 +170,9 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10">
-          <h2 className="text-2xl text-center font-bold mb-4">
+      
+      <div className="mt-20">
+        <h2 className="text-center text-3xl text-[#001e1d] font-bold mb-4">
               YOU MAY ALSO LIKE
           </h2>
           <ProductGrid products={similarProducts}/>
