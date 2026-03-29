@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer>
         {/* Brands Section */}
-        <div className="border-b border-t">
+        <div className="border-b border-t ">
           <div className="container mx-auto px-4 lg:px-0 overflow-x-auto">
             <div className="flex gap-4 items-center justify-between min-w-max lg:min-w-0">
             {brands.map((brand) => (
@@ -24,7 +24,7 @@ const Footer = () => {
                 key={brand.slug}
                 to={`/brands/${brand.slug}`}
                 title={brand.name}
-                className="flex items-center justify-center p-2 rounded-lg hover:bg-[#004643]/10 transition-colors flex-shrink-0"
+                className="flex items-center justify-center p-2  transition-colors flex-shrink-0"
               >
                 <img 
                   loading="lazy"
@@ -34,16 +34,12 @@ const Footer = () => {
                 />
               </Link>
             ))}
-            <Link 
-              to="/brands"
-              className="flex flex-col items-center justify-center p-2 text-[#004643] hover:text-[#00948d] transition-colors flex-shrink-0"
-            >
-              
-            </Link>
+            
             </div>
           </div>
         </div>
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_2fr] gap-8 lg:px-0 p-4">
+        {/* Support */}
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-[1fr_1fr_1fr_2fr] gap-8 lg:px-0 p-4">
             <div className="text-[#001e1d] mb-2">
                 <h3 className="text-lg mb-4 font-bold">Newsletter</h3>
                 <p className=" text-[#004643] mb-4">Be the first to hear about new products, exclusive events, and online offer. </p>
@@ -90,7 +86,7 @@ const Footer = () => {
 
             {/* Download app  */}
             <div className="text-[#001e1d]">
-                <h1 className="text-2xl font-bold mb-5">Download now the app for those crazy about football equipment and enjoy faster and more convenient shopping and booking.</h1>
+                <h1 className=" text-sm md:text-2xl font-bold mb-5">Download now the app for those crazy about football equipment and enjoy faster and more convenient shopping and booking.</h1>
                 <div className="flex justify-center xl:justify-start mb-4 space-x-4">
                     <a href="">
                         <img className="w-auto h-12" src="/images/store-en.png" alt="Google Play"></img>
@@ -104,7 +100,7 @@ const Footer = () => {
         </div>
 
         {/* footer copyright */}
-        <div className="container mx-auto mt-8 border-t pt-6 px-4 lg:px-0">
+        <div className=" mx-auto border-t px-4 lg:px-0">
             <p className="text-sm text-center text-[#001e1d]">&copy;2025 Football Boots Store. All rights reserved.</p>
         </div>
     </footer>

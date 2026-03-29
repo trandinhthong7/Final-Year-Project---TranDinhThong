@@ -64,7 +64,7 @@ const Carousel = () => {
       >
         <button
           onClick={prevSlide}
-          className="text-3xl md:text-5xl text-[#f9bc60] hover:text-[#a47733] transition-colors
+          className="text-3xl md:text-5xl text-[#f9bc60] hover:text-[#f9bc60]/60 transition-colors
                      p-2 rounded-full bg-[#001e1d]/30 md:bg-transparent"
         >
           <FaAngleLeft />
@@ -72,7 +72,7 @@ const Carousel = () => {
 
         <button
           onClick={nextSlide}
-          className="text-3xl md:text-5xl text-[#f9bc60] hover:text-[#a47733] transition-colors
+          className="text-3xl md:text-5xl text-[#f9bc60] hover:text-[#f9bc60]/60 transition-colors
                      p-2 rounded-full bg-[#001e1d]/30 md:bg-transparent"
         >
           <FaAngleRight />

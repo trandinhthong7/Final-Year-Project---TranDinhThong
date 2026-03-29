@@ -20,7 +20,7 @@ const NavBar = () => {
         <nav className="container mx-auto flex items-center justify-between py-4 px-2">
             {/* Left-Logo  */}
             <div>
-                <Link to={"/"} className="text-xl font-medium text-[#001e1d] hover:text-[#00948d] mx-4">TDT-Football</Link>
+                <Link to={"/"} className="text-md sm:text-xl font-bold text-[#001e1d] hover:text-[#00948d] mx-3">TDT-Football</Link>
             </div>
             {/* Center - Menu */}
             <div className="hidden md:flex space-x-6">
@@ -51,21 +51,58 @@ const NavBar = () => {
 
         {/* mobile navigation */}
         <div 
-        className={`fixed top-0 left-0 w-3/4 sm:w-1/2 md:w-1/3 h-full bg-[#004643] shadow-lg transform transition-transform duration-300 z-50 ${navDrawerOpen ? "translate-x-0" : " -translate-x-full"}`} >
-          <div className="flex justify-end p-4">
-            <button onClick={toggleNavDrawer}><IoCloseOutline className="h-6 w-6 text-[#abd1c6]"/></button>
+          className={`fixed top-0 left-0 w-[85%] sm:w-[350px] h-full bg-[#004643] shadow-2xl transform transition-transform duration-300 z-50 flex flex-col ${navDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-[#fffffe]">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-[#fffffe] text-sm uppercase tracking-tight">TDT Stadium</span>
+            </div>
+            <button 
+              onClick={toggleNavDrawer} 
+              className="p-2 hover:bg-[#00948d] rounded-full transition-colors"
+            >
+              <IoCloseOutline className="h-6 w-6 text-[#fffffe]" />
+            </button>
           </div>
-          <div className="p-4">
-            <h2 className="text-xl text-[#abd1c6] font-semibold mb-4">Menu</h2>
-            <nav>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Home</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Boots</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Gloves</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Accessories</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Futsal</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Booking</Link>
-              <Link to = "#" onClick={toggleNavDrawer} className="block text-[#abd1c6] hover:text-[#00948d]">Academy</Link>
+
+          {/* 2. Body của Menu (Nơi chứa các Link) */}
+          <div className="flex-1 overflow-y-auto custom-scrollbar">
+            <nav className="p-0">
+              {[
+                { name: "Home", link: "#" },
+                { name: "Boots", link: "#" },
+                { name: "Gloves", link: "#" },
+                { name: "Accessories", link: "#" },
+                { name: "Futsal", link: "#" },
+                { name: "Booking", link: "#" },
+                { name: "Academy", link: "#" },
+              ].map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.link}
+                  onClick={toggleNavDrawer}
+                  className="flex items-center justify-between px-6 py-4 text-[#fffffe] font-bold uppercase text-xs tracking-widest border-b border-[#fffffe] hover:bg-[#abd1c6] hover:text-[#004643] transition-all group"
+                >
+                  <span>{item.name}</span>
+                  {/* Thêm icon mũi tên nhỏ bên phải giống mẫu */}
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-4 w-4 text-gray-300 group-hover:text-[#004643] transform group-hover:translate-x-1 transition-all" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ))}
             </nav>
+
+            {/* Footer */}
+            <footer className="text-center text-xs text-[#fffffe] uppercase font-bold sticky bottom-0">
+                  © 2026 TDT Stadium - Be the Best
+            </footer>
           </div>
         </div>
         

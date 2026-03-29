@@ -1,4 +1,5 @@
 import { RiDeleteBin5Line } from "react-icons/ri"
+import adidasF50 from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ag-purple.jpg';
 
 const CartItems = () => {
     const cartProducts = [
@@ -9,7 +10,7 @@ const CartItems = () => {
             color: "Red",
             price: 250,
             quantity: 1,
-            imageUrl: "https://www.futbolemotion.com/imagesarticulos/248189/750/bota-adidas-predator-elite-ft-fg-lucid-red-white-core-black-0.webp"
+            image: adidasF50
         },
         {
             productId:2 ,
@@ -18,7 +19,7 @@ const CartItems = () => {
             color: "Blue",
             price: 250,
             quantity: 1,
-            imageUrl: "https://www.futbolemotion.com/imagesarticulos/248189/750/bota-adidas-predator-elite-ft-fg-lucid-red-white-core-black-0.webp"
+            image: adidasF50
         }
     ]
 

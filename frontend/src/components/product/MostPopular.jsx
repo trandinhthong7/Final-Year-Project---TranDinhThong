@@ -67,7 +67,7 @@ const MostPopular = () => {
             originalPrice: 139.99,
             discount: 20,
             category: "BOOTS",
-            tags: ["deal", "children"],
+            tags: ["deal"],
             sizes: [36, 37, 38, 39, 40],
             images: nikePhantom,
             colorVariants: [nikePhantom, nikeMercurial]
@@ -99,7 +99,7 @@ const MostPopular = () => {
             name: "Futsal Shoes Lightweight",
             price: 129.99,
             category: "GLOVES",
-            tags: ["children", "new"],
+            tags: ["new"],
             sizes: [6, 7, 8, 9],
             images: adidaspredator,
             colorVariants: [adidaspredator, adidasgloves]
@@ -129,7 +129,7 @@ const MostPopular = () => {
             name: "Futsal Shoes Lightweight",
             price: 129.99,
             category: "GLOVES",
-            tags: ["children"],
+            tags: [],
             sizes: [6, 7, 8, 9, 10],
             images: adidaspredator,
             colorVariants: [adidaspredator, adidasgloves]
@@ -314,8 +314,6 @@ const MostPopular = () => {
                 return 'border-[#f9bc60] text-[#f9bc60]';
             case 'new':
                 return 'border-red-500 text-red-500';
-            case 'children':
-                return 'border-[#abd1c6] text-[#abd1c6]';
             default:
                 return 'border-[#abd1c6] text-[#abd1c6]';
         }
@@ -374,86 +372,92 @@ const MostPopular = () => {
                         to={`/product/${product.id}`} 
                         key={product.id} 
                         data-product-id={product.id}
-                        className="min-w-[280px] md:min-w-[320px] rounded-lg shadow-sm flex flex-col overflow-hidden group relative"
+                        className="w-[200px] min-w-[200px] md:w-[280px] md:min-w-[280px] lg:min-w-[320px] h-[400px] md:h-[500px] rounded-lg shadow-sm overflow-hidden group relative bg-white block flex-shrink-0"
                     >
-                        {/* Part 1: Image */}
-                        <div className="relative aspect-square">
+                        {/*Image */}
+                        <div className="absolute top-0 left-0 right-0 h-[300px] md:h-[400px]">
                             <img 
                                 src={product.images} 
                                 alt={product.name}
-                                className="w-full h-full object-cover rounded-lg"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 draggable="false"
                             />
-                            
-                            {/* Part 2: Overlay with product info */}
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001e1d] via-[#001e1d]/90 to-transparent rounded-b-lg">
-                                {/* Color variants & Sizes - hidden by default, show on hover */}
-                                <div className="px-3 pt-8 pb-2 transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    {/* Color variant images */}
-                                    {product.colorVariants && product.colorVariants.length > 1 && (
-                                        <div className="flex gap-2 mb-2">
-                                            {product.colorVariants.map((variant, index) => (
-                                                <div 
-                                                    key={index}
-                                                    className="w-10 h-10 rounded-md overflow-hidden border-2 border-white/50 hover:border-[#f9bc60] transition-colors cursor-pointer"
-                                                >
-                                                    <img 
-                                                        src={variant} 
-                                                        alt={`Color ${index + 1}`}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                    
-                                    {/* Sizes */}
-                                    <div className="flex flex-wrap gap-1 mb-2">
-                                        {product.sizes.map((size, index) => (
-                                            <span 
-                                                key={index}
-                                                className="text-[10px] px-2 py-1 bg-[#004643] text-[#abd1c6] rounded hover:bg-[#f9bc60] hover:text-[#001e1d] transition-colors cursor-pointer"
-                                            >
-                                                {size}
-                                            </span>
-                                        ))}
-                                    </div>
+                        </div>
+
+                        {/*Product Info*/}
+                        <div className="absolute bottom-0 left-0 right-0 bg-[#004643] p-3 md:p-4 flex flex-col gap-1 md:gap-2 transition-all duration-300 ease-out group-hover:bg-[#004643]/90">
+                            {/* Always visible header */}
+                            <div>
+                                {/* Tags */}
+                                <div className="flex gap-1 mb-1 flex-wrap min-h-[24px]">
+                                    {product.tags.map((tag, index) => (
+                                        <span 
+                                            key={index}
+                                            className={`
+                                                text-[10px] font-black px-2 py-0.5 uppercase rounded-full border-2 bg-transparent
+                                                ${getTagStyle(tag)}
+                                            `}
+                                        >
+                                            {tag.toUpperCase()}
+                                        </span>
+                                    ))}
                                 </div>
+                            
+                                {/* Name */}
+                                <h4 className="font-medium text-[#fffffe] text-sm leading-tight line-clamp-1 group-hover:line-clamp-none mb-1">
+                                    {product.name.toUpperCase()}
+                                </h4>
                                 
-                                {/* Name, Price, Tags - always visible, moves up on hover */}
-                                <div className="px-3 pb-3 transform group-hover:-translate-y-2 transition-transform duration-300">
-                                    {/* Tags */}
-                                    <div className="flex gap-1 mb-2 flex-wrap">
-                                        {product.tags.map((tag, index) => (
-                                            <span 
-                                                key={index}
-                                                className={`
-                                                    text-[10px] font-black px-2 py-0.5 uppercase rounded-full border-2 bg-transparent
-                                                    ${getTagStyle(tag)}
-                                                `}
-                                            >
-                                                {tag.toUpperCase()}
+                                {/* Price section */}
+                                <div>
+                                    {hasDealTag(product.tags) && product.originalPrice ? (
+                                        <div className="flex items-baseline gap-2">
+                                            <p className="font-bold  text-[#f9bc60]">${product.price}</p>
+                                            <p className="font-light text-[#abd1c6] line-through text-xs">${product.originalPrice}</p>
+                                            <span className="text-xs font-bold text-[#004643] bg-[#f9bc60] px-1.5 py-0.5 rounded">
+                                                -{product.discount}%
                                             </span>
-                                        ))}
-                                    </div>
-                                
-                                    {/* Name with ellipsis */}
-                                    <h4 className="font-medium text-[#fffffe] text-sm leading-tight line-clamp-2 overflow-hidden">
-                                        {product.name.toUpperCase()}
-                                    </h4>
-                                    
-                                    {/* Price section */}
-                                    <div className="mt-2 flex items-center gap-2 flex-wrap">
-                                        {hasDealTag(product.tags) && product.originalPrice ? (
-                                            <>
-                                                <p className="font-bold text-[#f9bc60]">${product.price}</p>
-                                                <p className="font-light text-[#abd1c6]/60 line-through text-sm">${product.originalPrice}</p>
-                                                <span className="text-xs font-bold text-[#004643] bg-[#f9bc60] px-1.5 py-0.5 rounded">
-                                                    -{product.discount}%
-                                                </span>
-                                            </>
-                                        ) : (
-                                            <p className="font-light text-[#abd1c6]">${product.price}</p>
+                                        </div>
+                                    ) : (
+                                        <p className="font-bold text-[#fffffe]">${product.price}</p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Popup: Color variants & Sizes*/}
+                            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+                                <div className="overflow-hidden">
+                                    <div className="pt-2 mt-1 border-t border-gray-100 flex flex-col gap-2">
+                                        {/* Color variant images */}
+                                        {product.colorVariants && product.colorVariants.length > 1 && (
+                                            <div className="flex gap-2">
+                                                {product.colorVariants.map((variant, index) => (
+                                                    <div 
+                                                        key={index}
+                                                        className="w-8 h-8 rounded-md overflow-hidden border border-gray-200 hover:border-[#f9bc60] transition-colors cursor-pointer"
+                                                    >
+                                                        <img 
+                                                            src={variant} 
+                                                            alt={`Color ${index + 1}`}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                        
+                                        {/* Sizes */}
+                                        {product.sizes && product.sizes.length > 0 && (
+                                            <div className="flex flex-wrap gap-1">
+                                                {product.sizes.map((size, index) => (
+                                                    <span 
+                                                        key={index}
+                                                        className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded hover:bg-[#f9bc60] hover:text-[#001e1d] transition-colors cursor-pointer"
+                                                    >
+                                                        {size}
+                                                    </span>
+                                                ))}
+                                            </div>
                                         )}
                                     </div>
                                 </div>

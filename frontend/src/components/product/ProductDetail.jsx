@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import ProductGrid from "./ProductGrid";
+import adidasF50 from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ag-purple.jpg';
+import nikeMercurial from '../../assets/Most Popular/boots/bota-nike-air-zoom-mercurial-vap.jpg';
 
 const testProduct = {
   name: "Sample Product",
   price: 49.99,
   originalPrice: 69.99,
+  discount: 20,
   description: "This is a sample product used for demonstration purposes.",
   brand: "Sample Brand",
   category: "Boots",
@@ -13,11 +16,11 @@ const testProduct = {
   color: ["Black", "Brown"],
   image: [
     {
-      url: "https://www.futbolemotion.com/imagesarticulos/280367/750/bota-nike-tiempo-legend-10-elite-fg-vast-grey-racer-blue-0.webp",
+      url: adidasF50,
       alt: "Sample Product Image",
     },
     {
-      url: "https://www.futbolemotion.com/imagesarticulos/232529/750/bota-nike-tiempo-legend-10-elite-fg-black-black-deep-jungle-0.webp",
+      url: nikeMercurial,
       alt: "Sample Product Image 2",
     },
   ],
@@ -26,15 +29,51 @@ const testProduct = {
 const similarProducts = [
   {
     id: 1,
-    name: "Product 1",
-    price: 59.99,
-    image: [{url: "https://www.futbolemotion.com/imagesarticulos/232529/750/bota-nike-tiempo-legend-10-elite-fg-black-black-deep-jungle-0.webp"}],
+    name: "adidas F50 Elite AG Football Boots",
+    price: 49.99,
+    originalPrice: 69.99,
+    discount: 18,
+    category: "BOOTS",
+    tags: ["deal", "new"],
+    sizes: [39, 40, 41, 42, 43, 44],
+    colorVariants: [adidasF50, nikeMercurial],
+    images: adidasF50,
   },
   {
     id: 2,
-    name: "Product 2",
-    price: 59.99,
-    image: [{url: "https://www.futbolemotion.com/imagesarticulos/232529/750/bota-nike-tiempo-legend-10-elite-fg-black-black-deep-jungle-0.webp"}],
+    name: "Nike Air Zoom Mercurial Vapor 16",
+    price: 49.99,
+    originalPrice: 69.99,
+    discount: 18,
+    category: "BOOTS",
+    tags: ["deal", "new"],
+    sizes: [39, 40, 41, 42, 43, 44],
+    colorVariants: [nikeMercurial, adidasF50],
+    images: nikeMercurial,
+  },
+  {
+    id: 3,
+    name: "Adidas F50 Elite AG",
+    price: 49.99,
+    originalPrice: 69.99,
+    discount: 18,
+    category: "BOOTS",
+    tags: ["deal", "new"],
+    sizes: [39, 40, 41, 42, 43, 44],
+    colorVariants: [],
+    images: adidasF50,
+  },
+  {
+    id: 4,
+    name: "Nike Air Zoom Mercurial",
+    price: 49.99,
+    originalPrice: 69.99,
+    discount: 18,
+    category: "BOOTS",
+    tags: ["deal", "new"],
+    sizes: [39, 40, 41, 42, 43, 44],
+    colorVariants: [],
+    images: nikeMercurial,
   },
 ];
 
@@ -76,6 +115,8 @@ const ProductDetail = () => {
     
   return (
     <div className="p-4">
+      {/*Best Seller*/}
+      <h2 className='text-center text-3xl pb-4 text-[#001e1d] font-bold'>BEST SELLER</h2>
       <div className="max-w-6xl mx-auto bg-[#004643] p-8 rounded-lg">
         <div className="flex flex-col md:flex-row">
           {/* left thumbnail */}
@@ -85,7 +126,7 @@ const ProductDetail = () => {
                 key={index}
                 src={image.url}
                 alt={image.alt}
-                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImage === image.url ? 'border-4 border-[#abd1c6]' : ''}`}
+                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImage === image.url ? 'border-4 border-[#f9bc60]' : ''}`}
                 onClick={()=> setMainImage(image.url)}
               />
             ))}
@@ -118,10 +159,10 @@ const ProductDetail = () => {
             <h1 className="text-2xl text-[#fffffe] font-bold">
               {testProduct.name}
             </h1>
-            <p className="text-lg  text-[#abd1c6] mb-1 line-through">
+            <p className="text-lg  font-light text-[#abd1c6] mb-1 line-through">
               {testProduct.originalPrice && `$${testProduct.originalPrice}`}
             </p>
-            <p className="text-xl text-[#abd1c6] mb-2">
+            <p className="text-xl font-bold text-[#f9bc60] mb-2">
               {testProduct.price && `$${testProduct.price}`}
             </p>
             <p className="mb-4 text-[#abd1c6]">{testProduct.description}</p>
@@ -175,7 +216,8 @@ const ProductDetail = () => {
         <h2 className="text-center text-3xl text-[#001e1d] font-bold mb-4">
               YOU MAY ALSO LIKE
           </h2>
-          <ProductGrid products={similarProducts}/>
+          <ProductGrid products={similarProducts} horizontal={true}/>
+          
         </div>
     </div>
     
