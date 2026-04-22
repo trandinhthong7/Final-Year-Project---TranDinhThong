@@ -17,7 +17,7 @@ const SearchBar = () => {
     }
     return (
         <div className={`flex items-center justify-center w-full transition-all duration-300 
-            ${isOpen ? "absolute top-0 left-0 w-full bg-[#004643] h-27 z-50" : "w-auto"}`}>
+            ${isOpen ? "absolute top-0 left-0 w-full bg-[#004643] h-21 md:h-22 z-50" : "w-auto"}`}>
 
             {isOpen ? (
                 <form onSubmit={handleSearch} className="relative flex items-center justify-center w-full">

@@ -45,19 +45,19 @@ const Footer = () => {
                 <p className=" text-[#004643] mb-4">Be the first to hear about new products, exclusive events, and online offer. </p>
                 <p className="text-sm mb-2 font-bold">Sign up and get 20% off your first order.</p>
                 {/* News letter form will be here */}
-                <form className="flex gap-2">
+                <form className="flex gap-2 md:flex-row flex-col">
                     <input
                         id="email-address"
                         name="email"
                         type="email"
                         required
-                        placeholder="Enter your email"
+                        placeholder="Enter email"
                         autoComplete="email"
-                        className="min-w-0 flex-auto rounded-md bg-[#004643] px-3.5 py-2 text-base text-[#abd1c6] outline-1 -outline-offset-1 outline-[#004643] placeholder:text-[#abd1c6] focus:outline-2 focus:-outline-offset-2 focus:outline-[#f9bc60] sm:text-sm/6"
+                        className="min-w-0 flex-auto rounded-md bg-[#004643] text-xs md:text-sm px-3.5 py-2 text-[#abd1c6] outline-1 -outline-offset-1 outline-[#004643] placeholder:text-[#abd1c6] focus:outline-2 focus:-outline-offset-2 focus:outline-[#f9bc60] sm:text-sm/6"
                     />
                     <button
                         type="submit"
-                        className="flex-none rounded-md bg-[#f9bc60] px-3.5 py-2.5 text-sm font-semibold text-[#001e1d] shadow-xs hover:bg-[#a47733] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f9bc60]"
+                        className="flex-none rounded-md bg-[#f9bc60] px-2 py-2 text-xs md:text-sm font-semibold text-[#001e1d] shadow-xs hover:bg-[#a47733] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f9bc60]"
                         >Subscribe
                     </button>
                 </form>
@@ -89,10 +89,10 @@ const Footer = () => {
                 <h1 className=" text-sm md:text-2xl font-bold mb-5">Download now the app for those crazy about football equipment and enjoy faster and more convenient shopping and booking.</h1>
                 <div className="flex justify-center xl:justify-start mb-4 space-x-4">
                     <a href="">
-                        <img className="w-auto h-12" src="/images/store-en.png" alt="Google Play"></img>
+                        <img className="md:w-auto md:h-12" src="/images/store-en.png" alt="Google Play"></img>
                     </a>
                     <a href="">
-                        <img className="w-auto h-12" src="/images/market-en.png" alt="App Store"></img>
+                        <img className="md:w-auto md:h-12" src="/images/market-en.png" alt="App Store"></img>
                     </a>
                 </div>
             </div>

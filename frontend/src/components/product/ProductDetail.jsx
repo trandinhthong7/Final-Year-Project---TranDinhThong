@@ -9,7 +9,7 @@ const testProduct = {
   price: 49.99,
   originalPrice: 69.99,
   discount: 20,
-  description: "This is a sample product used for demonstration purposes.",
+  tags: ["best seller", "new"],
   brand: "Sample Brand",
   category: "Boots",
   sizes: ["39", "40", "41", "42", "43"],
@@ -25,6 +25,17 @@ const testProduct = {
     },
   ],
 };
+
+const getTagStyle = (tag) => {
+        switch(tag) {
+            case 'deal':
+                return 'border-[#f9bc60] text-[#f9bc60]';
+            case 'new':
+                return 'border-red-500 text-red-500';
+            default:
+                return 'border-[#abd1c6] text-[#abd1c6]';
+        }
+    };
 
 const similarProducts = [
   {
@@ -115,8 +126,6 @@ const ProductDetail = () => {
     
   return (
     <div className="p-4">
-      {/*Best Seller*/}
-      <h2 className='text-center text-3xl pb-4 text-[#001e1d] font-bold'>BEST SELLER</h2>
       <div className="max-w-6xl mx-auto bg-[#004643] p-8 rounded-lg">
         <div className="flex flex-col md:flex-row">
           {/* left thumbnail */}
@@ -159,9 +168,19 @@ const ProductDetail = () => {
             <h1 className="text-2xl text-[#fffffe] font-bold">
               {testProduct.name}
             </h1>
-            <p className="text-lg  font-light text-[#abd1c6] mb-1 line-through">
-              {testProduct.originalPrice && `$${testProduct.originalPrice}`}
-            </p>
+            <div className="flex gap-1 flex-wrap my-2">
+                    {testProduct.tags.map((tag, index) => (
+                        <span 
+                            key={index}
+                            className={`
+                                text-[10px] font-bold px-2 py-0.5 uppercase rounded-full border
+                                ${getTagStyle(tag)}
+                            `}
+                        >
+                            {tag.toUpperCase()}
+                        </span>
+                    ))}
+            </div>
             <p className="text-xl font-bold text-[#f9bc60] mb-2">
               {testProduct.price && `$${testProduct.price}`}
             </p>

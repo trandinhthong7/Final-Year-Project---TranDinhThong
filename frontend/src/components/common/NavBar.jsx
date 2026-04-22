@@ -4,6 +4,7 @@ import CartDrawer from '../layout/CartDrawer'
 import { useState } from 'react'
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { IoBagHandleOutline, IoCloseOutline, IoPersonOutline } from 'react-icons/io5'
+import { FaChevronRight } from 'react-icons/fa';
 
 const NavBar = () => {
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
@@ -25,15 +26,15 @@ const NavBar = () => {
             {/* Center - Menu */}
             <div className="hidden md:flex space-x-6">
                 <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Home</Link>
-                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Boots</Link>
+                <Link to="/collections/boots" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Boots</Link>
                 <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Gloves</Link>
-                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Accessories</Link>              
-                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Futsal</Link>
+                <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Accessories</Link>
                 <Link to="" className=" text-[#001e1d] hover:text-[#00948d] text-sm font-medium uppercase">Booking</Link>
                 <Link to="" className=" text-[#00001e1d4643] hover:text-[#00948d] text-sm font-medium uppercase">Academy</Link>
             </div>
             {/* Right - Icons */}
             <div className="flex items-center space-x-4 mx-4">
+                <Link to ="/admin" className="block bg-[#004643] text-[#fffffe] text-sm px-2 rounded">Admin</Link>
                 <Link to="/profile"><IoPersonOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/></Link>
                 <button onClick={toggleDrawer} className="relative">
                   <IoBagHandleOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
@@ -66,15 +67,14 @@ const NavBar = () => {
             </button>
           </div>
 
-          {/* 2. Body của Menu (Nơi chứa các Link) */}
+          {/* Menu body */}
           <div className="flex-1 overflow-y-auto custom-scrollbar">
             <nav className="p-0">
               {[
-                { name: "Home", link: "#" },
-                { name: "Boots", link: "#" },
+                { name: "Home", link: "" },
+                { name: "Boots", link: "collections/boots" },
                 { name: "Gloves", link: "#" },
                 { name: "Accessories", link: "#" },
-                { name: "Futsal", link: "#" },
                 { name: "Booking", link: "#" },
                 { name: "Academy", link: "#" },
               ].map((item, index) => (
@@ -85,22 +85,17 @@ const NavBar = () => {
                   className="flex items-center justify-between px-6 py-4 text-[#fffffe] font-bold uppercase text-xs tracking-widest border-b border-[#fffffe] hover:bg-[#abd1c6] hover:text-[#004643] transition-all group"
                 >
                   <span>{item.name}</span>
-                  {/* Thêm icon mũi tên nhỏ bên phải giống mẫu */}
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-4 w-4 text-gray-300 group-hover:text-[#004643] transform group-hover:translate-x-1 transition-all" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
+                  {/* Arrow icon  */}
+                  <button 
+                    className="h-4 w-4 text-[#fffffe] text-xl  group-hover:text-[#004643] transform group-hover:translate-x-1 transition-all" 
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                    <FaChevronRight/>
+                  </button>
                 </Link>
               ))}
             </nav>
-
             {/* Footer */}
-            <footer className="text-center text-xs text-[#fffffe] uppercase font-bold sticky bottom-0">
+            <footer className="text-center text-xs text-[#fffffe] mt-4 uppercase font-bold">
                   © 2026 TDT Stadium - Be the Best
             </footer>
           </div>

@@ -11,6 +11,8 @@ const Home = () => {
         <Carousel/>
         <NewCollection/>
         <MostPopular/>
+        {/*Best Seller*/}
+        <h2 className='text-center text-3xl text-[#001e1d] font-bold'>BEST SELLER</h2>
         <ProductDetail/>
         <FeaturesSection/>
         

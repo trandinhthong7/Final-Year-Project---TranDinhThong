@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import puma from '../assets/Most Popular/boots/bota-puma-zukunftige-8-pro-fg-ag.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const MyOrderPage = () => {
     const [orders, setOrders] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
         // Fetch orders simulation
@@ -38,6 +40,9 @@ const MyOrderPage = () => {
             setOrders(mockOrders);
     },1000);
 },[]);
+const handleRowClick = (ordersId) => {
+    navigate(`/order/${ordersId}`);
+}
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
         <h2 className="text-xl sm:text-2xl text-[#001e1d] font-bold mb-6">My Orders</h2>
@@ -57,7 +62,8 @@ const MyOrderPage = () => {
                 <tbody >
                     {orders.length>0?(
                     orders.map((order) => (
-                        <tr key={order._id} className="border-b border-[#004643] text-[#004643] hover:text-[#00948d] hover:border-[#00948d] cursor-pointer">
+                        <tr key={order._id} className="border-b border-[#004643] text-[#004643] hover:text-[#00948d] hover:border-[#00948d] cursor-pointer"
+                        onClick={()=>handleRowClick(order._id)}>
                             <td className="py-2 px-2 sm:py-4 sm:px-4">
                                 <img src={order.orderItems[0].image} alt={order.orderItems[0].name}
                                 className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-lg"/>
