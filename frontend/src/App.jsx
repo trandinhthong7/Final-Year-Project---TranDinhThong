@@ -10,7 +10,7 @@ import CollectionPage from "./pages/CollectionPage";
 import GlovePage from "./pages/GlovePage";
 import AccessoriesPage from "./pages/AccessoriesPage";
 import ProductDetail from "./components/product/ProductDetail";
-import Checkout from "./components/cart/CheckOut";
+import Checkout from "./components/cart/Checkout";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import OrderDetailPage from "./pages/OrderDetailPage";
 import MyOrderPage from "./pages/MyOrderPage";
