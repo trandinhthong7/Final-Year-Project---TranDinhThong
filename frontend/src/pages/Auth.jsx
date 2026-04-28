@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { toast } from "sonner";
 import loginImg from '../assets/login.jpg'; 
 import AppleLogo from '../assets/Apple_logo.png';
 import GoogleLogo from '../assets/Google__G__logo.png';
+import { loginUser, registerUser } from "../redux/slices/authSlice";
+import { mergeCart } from "../redux/slices/cartSlice";
 
 const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -10,13 +14,40 @@ const Auth = () => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (isLogin) {
-            console.log("Sign in:", {email, password});
-        } else {
-            console.log("Register:", {name, email, password, confirmPassword});
+        
+        if (!isLogin && password !== confirmPassword) {
+            toast.error("Passwords do not match");
+            return;
+        }
+        
+        try {
+            if (isLogin) {
+                const result = await dispatch(loginUser({email, password})).unwrap();
+                
+                // Merge guest cart with user cart after successful login
+                const guestId = localStorage.getItem("guestId");
+                if (guestId && result.user?._id) {
+                    await dispatch(mergeCart({ guestId, userId: result.user._id }));
+                    localStorage.removeItem("guestId"); // Clear guest ID after merge
+                }
+                
+                toast.success("Login successful!");
+                navigate("/");
+            } else {
+                await dispatch(registerUser({username: name, email, password})).unwrap();
+                toast.success("Registration successful! Please login.");
+                setIsLogin(true);
+                setName("");
+                setPassword("");
+                setConfirmPassword("");
+            }
+        } catch (error) {
+            toast.error(error || "An error occurred");
         }
     };
 
@@ -144,7 +175,7 @@ const Auth = () => {
                             )}
 
                             <div className="flex items-center gap-4 pt-4">
-                                <button type='submit' className="bg-[#f9bc60] text-[#001e1d] px-10 py-3 rounded font-bold text-sm hover:bg-[#abd1c6] hover:scale-105 active:scale-95 transition-all">
+                                <button type='submit' className="bg-[#f9bc60] text-[#001e1d] px-10 py-3 rounded font-bold text-sm hover:scale-105 active:scale-95 transition-all">
                                     {isLogin ? "Log in" : "Register"}
                                 </button>
                                 {isLogin && (

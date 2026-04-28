@@ -1,0 +1,626 @@
+[
+  {
+    "name": "Nike Mercurial Vapor 15 Elite FG",
+    "description": "Experience explosive speed with the Nike Mercurial Vapor 15 Elite FG. Designed for the fastest players on the pitch, featuring a lightweight design and exceptional touch.",
+    "originalPrice": 275.00,
+    "discount": 15,
+    "sku": "BOOT-NIKE-MV15-001",
+    "category": "BOOTS",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Kylian Mbappe",
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 5 },
+          { "size": "40", "stock": 8 },
+          { "size": "41", "stock": 12 },
+          { "size": "42", "stock": 10 },
+          { "size": "43", "stock": 7 }
+        ]
+      },
+      {
+        "color": "White",
+        "hexCode": "#FFFFFF",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 3 },
+          { "size": "40", "stock": 6 },
+          { "size": "41", "stock": 10 },
+          { "size": "42", "stock": 8 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas Predator Elite FG",
+    "description": "Dominate the game with Adidas Predator Elite. Features HybridTouch upper for superior ball control and striking power.",
+    "originalPrice": 280.00,
+    "discount": 20,
+    "sku": "BOOT-ADIDAS-PRED-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["Deal", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Red",
+        "hexCode": "#FF0000",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 10 },
+          { "size": "41", "stock": 15 },
+          { "size": "42", "stock": 12 },
+          { "size": "43", "stock": 8 },
+          { "size": "44", "stock": 5 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": false
+  },
+  {
+    "name": "Puma Future 7 Ultimate FG/AG",
+    "description": "Revolutionary adaptive fit with FUZIONFIT360 technology. Designed for creative playmakers who change the game.",
+    "originalPrice": 250.00,
+    "discount": 10,
+    "sku": "BOOT-PUMA-FUT7-001",
+    "category": "BOOTS",
+    "brand": "Puma",
+    "age": ["Adult"],
+    "tags": ["New"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Neymar Jr.",
+    "colorVariants": [
+      {
+        "color": "Yellow",
+        "hexCode": "#FFFF00",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 6 },
+          { "size": "40", "stock": 9 },
+          { "size": "41", "stock": 11 },
+          { "size": "42", "stock": 9 },
+          { "size": "43", "stock": 6 }
+        ]
+      },
+      {
+        "color": "Blue",
+        "hexCode": "#0000FF",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 7 },
+          { "size": "41", "stock": 10 },
+          { "size": "42", "stock": 8 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Phantom GX Elite FG",
+    "description": "Precision and power combined. Nike Phantom GX Elite features Gripknit technology for enhanced ball control in all conditions.",
+    "originalPrice": 265.00,
+    "discount": 12,
+    "sku": "BOOT-NIKE-PHGX-001",
+    "category": "BOOTS",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Purple",
+        "hexCode": "#800080",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 8 },
+          { "size": "40", "stock": 12 },
+          { "size": "41", "stock": 14 },
+          { "size": "42", "stock": 11 },
+          { "size": "43", "stock": 7 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas Copa Pure.1 FG",
+    "description": "Classic leather boot reimagined. Premium K-leather upper provides unmatched comfort and touch.",
+    "originalPrice": 220.00,
+    "discount": 25,
+    "sku": "BOOT-ADIDAS-COPA-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Leather",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 8 },
+          { "size": "41", "stock": 10 },
+          { "size": "42", "stock": 12 },
+          { "size": "43", "stock": 9 },
+          { "size": "44", "stock": 6 }
+        ]
+      },
+      {
+        "color": "White",
+        "hexCode": "#FFFFFF",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 5 },
+          { "size": "41", "stock": 8 },
+          { "size": "42", "stock": 10 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Mizuno Morelia Neo IV Beta Elite",
+    "description": "Japanese craftsmanship meets modern technology. Ultra-lightweight kangaroo leather for exceptional feel.",
+    "originalPrice": 300.00,
+    "discount": 15,
+    "sku": "BOOT-MIZUNO-MOR4-001",
+    "category": "BOOTS",
+    "brand": "Mizuno",
+    "age": ["Adult"],
+    "tags": ["New"],
+    "outsole": "Firm Ground",
+    "material": "Leather",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Blue",
+        "hexCode": "#0000FF",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 4 },
+          { "size": "40", "stock": 6 },
+          { "size": "41", "stock": 8 },
+          { "size": "42", "stock": 7 },
+          { "size": "43", "stock": 5 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "New Balance Furon v7+ FG",
+    "description": "Speed without compromise. Hypoknit upper with Data2Design technology for explosive acceleration.",
+    "originalPrice": 230.00,
+    "discount": 18,
+    "sku": "BOOT-NB-FUR7-001",
+    "category": "BOOTS",
+    "brand": "New Balance",
+    "age": ["Adult"],
+    "tags": ["Deal", "New"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Orange",
+        "hexCode": "#FFA500",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 7 },
+          { "size": "41", "stock": 9 },
+          { "size": "42", "stock": 11 },
+          { "size": "43", "stock": 8 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Under Armour Magnetico Elite 3 FG",
+    "description": "Form-fitting boot with UA FormTrue technology. Provides a glove-like fit for ultimate control.",
+    "originalPrice": 200.00,
+    "discount": 20,
+    "sku": "BOOT-UA-MAG3-001",
+    "category": "BOOTS",
+    "brand": "Under Armour",
+    "age": ["Adult"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Green",
+        "hexCode": "#00FF00",
+        "images": [],
+        "sizeStock": [
+          { "size": "39", "stock": 5 },
+          { "size": "40", "stock": 8 },
+          { "size": "41", "stock": 10 },
+          { "size": "42", "stock": 9 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas X Speedportal.1 AG",
+    "description": "Built for speed on artificial grass. Speedframe outsole provides explosive acceleration and stability.",
+    "originalPrice": 240.00,
+    "discount": 22,
+    "sku": "BOOT-ADIDAS-XSP-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal", "Best Seller"],
+    "outsole": "Artificial Grass",
+    "material": "Synthetic",
+    "player": "Lionel Messi",
+    "colorVariants": [
+      {
+        "color": "Pink",
+        "hexCode": "#FFC0CB",
+        "images": [],
+        "sizeStock": [
+          { "size": "38", "stock": 6 },
+          { "size": "39", "stock": 9 },
+          { "size": "40", "stock": 12 },
+          { "size": "41", "stock": 10 },
+          { "size": "42", "stock": 8 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Tiempo Legend 10 Elite FG",
+    "description": "Modern classic with FlyTouch Lite engineered leather. Perfect touch and comfort for technical players.",
+    "originalPrice": 270.00,
+    "discount": 10,
+    "sku": "BOOT-NIKE-TIEM10-001",
+    "category": "BOOTS",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["New"],
+    "outsole": "Firm Ground",
+    "material": "Leather",
+    "player": "Cristiano Ronaldo",
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": [],
+        "sizeStock": [
+          { "size": "40", "stock": 10 },
+          { "size": "41", "stock": 13 },
+          { "size": "42", "stock": 11 },
+          { "size": "43", "stock": 8 },
+          { "size": "44", "stock": 6 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Thuong Dinh Sieu Pham Pro",
+    "description": "Vietnamese quality football boots. Durable construction with excellent value for money.",
+    "originalPrice": 85.00,
+    "discount": 30,
+    "sku": "BOOT-TD-SP-001",
+    "category": "BOOTS",
+    "brand": "Thuong Dinh",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Red",
+        "hexCode": "#FF0000",
+        "images": [],
+        "sizeStock": [
+          { "size": "37", "stock": 8 },
+          { "size": "38", "stock": 10 },
+          { "size": "39", "stock": 12 },
+          { "size": "40", "stock": 15 },
+          { "size": "41", "stock": 12 },
+          { "size": "42", "stock": 10 }
+        ]
+      },
+      {
+        "color": "Blue",
+        "hexCode": "#0000FF",
+        "images": [],
+        "sizeStock": [
+          { "size": "38", "stock": 7 },
+          { "size": "39", "stock": 9 },
+          { "size": "40", "stock": 11 },
+          { "size": "41", "stock": 9 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas Predator Pro Goalkeeper Gloves",
+    "description": "Professional-grade goalkeeper gloves with superior grip and protection. Features URG 2.0 latex palm for exceptional ball control.",
+    "originalPrice": 120.00,
+    "discount": 20,
+    "sku": "GLOVE-ADIDAS-PRED-001",
+    "category": "GLOVES",
+    "brand": "Adidas",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal", "Best Seller"],
+    "colorVariants": [
+      {
+        "color": "Red",
+        "hexCode": "#FF0000",
+        "images": [],
+        "sizeStock": [
+          { "size": "7", "stock": 4 },
+          { "size": "8", "stock": 6 },
+          { "size": "9", "stock": 8 },
+          { "size": "10", "stock": 10 },
+          { "size": "11", "stock": 5 }
+        ]
+      },
+      {
+        "color": "Blue",
+        "hexCode": "#0000FF",
+        "images": [],
+        "sizeStock": [
+          { "size": "8", "stock": 5 },
+          { "size": "9", "stock": 7 },
+          { "size": "10", "stock": 9 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Goalkeeper Vapor Grip3",
+    "description": "Elite goalkeeper gloves with Grip3 technology. All-weather performance with superior cushioning.",
+    "originalPrice": 130.00,
+    "discount": 15,
+    "sku": "GLOVE-NIKE-VG3-001",
+    "category": "GLOVES",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "colorVariants": [
+      {
+        "color": "Yellow",
+        "hexCode": "#FFFF00",
+        "images": [],
+        "sizeStock": [
+          { "size": "8", "stock": 6 },
+          { "size": "9", "stock": 9 },
+          { "size": "10", "stock": 12 },
+          { "size": "11", "stock": 7 }
+        ]
+      },
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": [],
+        "sizeStock": [
+          { "size": "9", "stock": 8 },
+          { "size": "10", "stock": 10 },
+          { "size": "11", "stock": 6 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Puma Future Grip 1 Hybrid",
+    "description": "Hybrid cut goalkeeper gloves with 4mm German latex. Perfect balance of grip and durability.",
+    "originalPrice": 100.00,
+    "discount": 25,
+    "sku": "GLOVE-PUMA-FG1-001",
+    "category": "GLOVES",
+    "brand": "Puma",
+    "age": ["Adult"],
+    "tags": ["Deal"],
+    "colorVariants": [
+      {
+        "color": "Green",
+        "hexCode": "#00FF00",
+        "images": [],
+        "sizeStock": [
+          { "size": "8", "stock": 5 },
+          { "size": "9", "stock": 8 },
+          { "size": "10", "stock": 10 },
+          { "size": "11", "stock": 6 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Uhlsport Absolutgrip Tight HN Pro",
+    "description": "Professional goalkeeper gloves with Absolutgrip foam. Tight fit for maximum control and feel.",
+    "originalPrice": 110.00,
+    "discount": 18,
+    "sku": "GLOVE-UHL-AGT-001",
+    "category": "GLOVES",
+    "brand": "Uhlsport",
+    "age": ["Adult", "Kids"],
+    "tags": ["New"],
+    "colorVariants": [
+      {
+        "color": "Orange",
+        "hexCode": "#FFA500",
+        "images": [],
+        "sizeStock": [
+          { "size": "7", "stock": 4 },
+          { "size": "8", "stock": 7 },
+          { "size": "9", "stock": 9 },
+          { "size": "10", "stock": 8 },
+          { "size": "11", "stock": 5 }
+        ]
+      }
+    ],
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Premier League Strike Football",
+    "description": "Official Premier League training ball with high-contrast graphics for enhanced visibility. Durable construction for long-lasting performance.",
+    "originalPrice": 35.00,
+    "discount": 10,
+    "sku": "ACC-BALL-NIKE-PL-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "3": 15,
+      "4": 25,
+      "5": 30
+    },
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas UCL Pro Official Match Ball",
+    "description": "Official UEFA Champions League match ball. Thermally bonded seamless surface for perfect flight.",
+    "originalPrice": 150.00,
+    "discount": 20,
+    "sku": "ACC-BALL-ADIDAS-UCL-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Adidas",
+    "tags": ["Deal", "New"],
+    "accessoryStock": {
+      "5": 20
+    },
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Puma teamFINAL Training Ball",
+    "description": "High-quality training ball with 32-panel design. Excellent for practice sessions and casual games.",
+    "originalPrice": 25.00,
+    "discount": 15,
+    "sku": "ACC-BALL-PUMA-TF-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Puma",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "3": 20,
+      "4": 30,
+      "5": 35
+    },
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Squad Crew Football Socks",
+    "description": "Comfortable football socks with cushioned sole and arch support. Moisture-wicking Dri-FIT fabric keeps feet dry.",
+    "originalPrice": 15.00,
+    "discount": 0,
+    "sku": "ACC-SOCK-NIKE-SQ-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Socks",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "S": 25,
+      "M": 40,
+      "L": 45,
+      "XL": 30
+    },
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Soka Pro Grip Tape",
+    "description": "Professional-grade grip tape for enhanced ball control and protection. Easy to apply and remove, suitable for all weather conditions.",
+    "originalPrice": 8.00,
+    "discount": 0,
+    "sku": "ACC-TAPE-SOKA-PG-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Tape",
+    "brand": "Soka",
+    "tags": ["New"],
+    "accessoryStock": {
+      "One Size": 100
+    },
+    "images": [],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  }
+]

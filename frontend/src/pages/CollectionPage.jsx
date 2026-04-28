@@ -1,157 +1,135 @@
 import { useRef, useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
-import adidasF50 from '../assets/Most Popular/boots/bota-adidas-f50-elite-ag-purple.jpg';
-import nikeMercurial from '../assets/Most Popular/boots/bota-nike-air-zoom-mercurial-vap.jpg';
 import FilterSidebar from "../components/product/FilterSidebar";
 import SortOptions from "../components/product/SortOptions";
 import ProductGrid from "../components/product/ProductGrid";
+import Pagination from "../components/common/Pagination";
+import { fetchProductsByFilter } from "../redux/slices/productsSlice";
 
 const CollectionPage = () => {
-    const [product,setProduct] = useState([]);
+    const dispatch = useDispatch();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const { products, loading, error, totalPages, currentPage } = useSelector((state) => state.products);
+    
     const sidebarRef = useRef(null);
     const filterBtnRef = useRef(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const toogleSidebar =() =>{
+    
+    const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     }
+    
     const handleClickOutside = (e) => {
-        //Close sidebar if click outside
-        if(sidebarRef.current && !sidebarRef.current.contains(e.target) && filterBtnRef.current && !filterBtnRef.current.contains(e.target)){
+        if (sidebarRef.current && !sidebarRef.current.contains(e.target) && 
+            filterBtnRef.current && !filterBtnRef.current.contains(e.target)) {
             setIsSidebarOpen(false);
         }
     }
+    
     useEffect(() => {
-        //Add event listener for clicks
         document.addEventListener('mousedown', handleClickOutside);
-        //Clear event listener 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    },[]);
+    }, []);
 
-    useEffect(() =>{
-        setTimeout(() => {
-            const fetchedProducts = 
-            [
-              {
-                id: 1,
-                name: "adidas F50 Elite AG Football Boots",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [adidasF50, nikeMercurial],
-                images: adidasF50,
-              },
-              {
-                id: 2,
-                name: "Nike Air Zoom Mercurial Vapor 16",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [nikeMercurial, adidasF50],
-                images: nikeMercurial,
-              },
-              {
-                id: 3,
-                name: "Adidas F50 Elite AG",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [],
-                images: adidasF50,
-              },
-              {
-                id: 4,
-                name: "Nike Air Zoom Mercurial",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [],
-                images: nikeMercurial,
-              },
-              {
-                id: 5,
-                name: "adidas F50 Elite AG Football Boots",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [adidasF50, nikeMercurial],
-                images: adidasF50,
-              },
-              {
-                id: 6,
-                name: "Nike Air Zoom Mercurial Vapor 16",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [nikeMercurial, adidasF50],
-                images: nikeMercurial,
-              },
-              {
-                id: 7,
-                name: "Adidas F50 Elite AG",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [],
-                images: adidasF50,
-              },
-              {
-                id: 8,
-                name: "Nike Air Zoom Mercurial",
-                price: 49.99,
-                originalPrice: 69.99,
-                discount: 18,
-                category: "BOOTS",
-                tags: ["deal", "new"],
-                sizes: [39, 40, 41, 42, 43, 44],
-                colorVariants: [],
-                images: nikeMercurial,
-              }
-            ]; setProduct(fetchedProducts);
-        },1000);
-    },[]);
-  return (
-    <div className="flex flex-col lg:flex-row">
-        {/* Mobile filter */}
-        <button ref={filterBtnRef} onClick={toogleSidebar} className="lg:hidden border p-2 flex text-[#004643] border-[#004643] justify-center items-center">
-            <FaFilter className="mr-2"/> Filter
-        </button>
-        {/* Filter sidebar */}
-        <div ref={sidebarRef} className={`${isSidebarOpen ? "translate-x-0":"-translate-x-full"} fixed inset-y-0 z-50 left-0 w-64
-        bg-[#004643] overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}>
-          <FilterSidebar/>
+    useEffect(() => {
+        const params = Object.fromEntries([...searchParams]);
+        const sortBy = params.sortBy;
+        let sortField = "createdAt";
+        let sortOrder = "desc";
+
+        if (sortBy === "priceAsc") {
+            sortField = "price";
+            sortOrder = "asc";
+        } else if (sortBy === "priceDesc") {
+            sortField = "price";
+            sortOrder = "desc";
+        } else if (sortBy === "popularity") {
+            sortField = "totalSold";
+            sortOrder = "desc";
+        }
+
+        dispatch(fetchProductsByFilter({
+            category: "BOOTS",
+            brand: params.brand,
+            size: params.size,
+            color: params.color,
+            age: params.age,
+            maxPrice: params.maxPrice,
+            minPrice: params.minPrice,
+            material: params.material,
+            player: params.player,
+            outsole: params.typeOfoutsole,
+            tags: params.tags,
+            sortBy: sortField,
+            order: sortOrder,
+            page: params.page || 1,
+            limit: 8
+        }));
+    }, [dispatch, searchParams]);
+
+    const handlePageChange = (pageNumber) => {
+        const params = new URLSearchParams(searchParams);
+        params.set("page", pageNumber);
+        setSearchParams(params);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="text-xl text-[#004643]">Loading products...</div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="text-xl text-red-600">Error: {error}</div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-col lg:flex-row">
+            <button 
+                ref={filterBtnRef} 
+                onClick={toggleSidebar} 
+                className="lg:hidden border p-2 flex text-[#004643] border-[#004643] justify-center items-center"
+            >
+                <FaFilter className="mr-2"/> Filter
+            </button>
+            
+            <div 
+                ref={sidebarRef} 
+                className={`${isSidebarOpen ? "translate-x-0":"-translate-x-full"} fixed inset-y-0 z-50 left-0 w-64
+                bg-[#004643] overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
+            >
+                <FilterSidebar category="BOOTS" />
+            </div>
+            
+            <div className="flex-grow p-4">
+                <h2 className="text-2xl uppercase mb-4">All Boots</h2>
+                <SortOptions/>
+                {products.length === 0 ? (
+                    <div className="text-center py-8 text-[#004643]">No products found</div>
+                ) : (
+                    <>
+                        <ProductGrid products={products} />
+                        <Pagination 
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                        />
+                    </>
+                )}
+            </div>
         </div>
-        <div className="flex-grow p-4">
-          <h2 className="text-2xl uppercase mb-4">All Boots</h2>
-          {/* Sort Options */}
-          <SortOptions/>
-          {/* Product Grid */}
-          <ProductGrid products={product} />
-        </div>
-    </div>
-  )
+    )
 }
 
 export default CollectionPage

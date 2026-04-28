@@ -1,2 +1,39 @@
-server/node_modules/
-.env
+# Dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Environment variables
+frontend/.env
+backend/.env
+
+# Build outputs
+backend/dist/
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.pem
+.cache/

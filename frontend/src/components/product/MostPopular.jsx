@@ -1,152 +1,19 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import adidasF50 from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ag-purple.jpg';
-import adidasF50ll from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ll-fg-purp.jpg';
-import adidasYamal from '../../assets/Most Popular/boots/bota-adidas-f50-elite-ll-fglamine-yamal-unity-purple-white-lucid-lemon-0.webp';
-import nikeMercurial from '../../assets/Most Popular/boots/bota-nike-air-zoom-mercurial-vap.jpg';
-import nikePhantom from '../../assets/Most Popular/boots/bota-nike-phantom-6-low-pro-fg-a.jpg';
-import puma from '../../assets/Most Popular/boots/bota-puma-zukunftige-8-pro-fg-ag.jpg';
-import adidasgloves from '../../assets/Most Popular/gloves/guantes-adidas-copa-match-fingersave-black-0.webp';
-import adidaspredator from '../../assets/Most Popular/gloves/guantes-adidas-predator-competition-lucid-lemon-white-black-0.webp';
-import ulsports from '../../assets/Most Popular/gloves/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0.webp';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMostPopularProducts } from '../../redux/slices/productsSlice';
 import { Link } from 'react-router-dom';
 
 const MostPopular = () => {
-    const products = [
-        {
-            id: 1,
-            name: "adidas F50 Elite AG Football Boots",
-            price: 269.99,
-            originalPrice: 329.99,
-            discount: 18,
-            category: "BOOTS",
-            tags: ["deal", "new"],
-            sizes: [39, 40, 41, 42, 43, 44],
-            images: adidasF50,
-            colorVariants: [adidasF50, adidasF50ll, adidasYamal]
-        },
-        {
-            id: 2,
-            name: "adidas F50 Elite LL Football Boots",
-            price: 269.99,
-            originalPrice: 319.99,
-            discount: 15,
-            category: "BOOTS",
-            tags: ["deal"],
-            sizes: [40, 41, 42, 43],
-            images: adidasF50ll,
-            colorVariants: [adidasF50ll, adidasF50]
-        },
-        {
-            id: 3,
-            name: "adidas F50 Elite LL FG Lamine Yamal Football Boots",
-            price: 279.99,
-            originalPrice: 349.99,
-            discount: 20,
-            category: "BOOTS",
-            tags: ["deal", "new"],
-            sizes: [38, 39, 40, 41, 42],
-            images: adidasYamal,
-            colorVariants: [adidasYamal, adidasF50ll, adidasF50]
-        },
-        {
-            id: 4,
-            name: "Nike Air Zoom Mercurial Vapor 16 Pro FG Football Boots",
-            price: 109.99,
-            originalPrice: 149.99,
-            discount: 27,
-            category: "BOOTS",
-            tags: ["deal"],
-            sizes: [39, 40, 41, 42, 43, 44, 45],
-            images: nikeMercurial,
-            colorVariants: [nikeMercurial, nikePhantom]
-        },
-        {
-            id: 5,
-            name: "Nike Phantom 6 Low Pro FG Football Boots",
-            price: 111.99,
-            originalPrice: 139.99,
-            discount: 20,
-            category: "BOOTS",
-            tags: ["deal"],
-            sizes: [36, 37, 38, 39, 40],
-            images: nikePhantom,
-            colorVariants: [nikePhantom, nikeMercurial]
-        },
-        {
-            id: 6,
-            name: "Puma Future 8 Pro FG AG Football Boots",
-            price: 269.99,
-            originalPrice: 329.99,
-            discount: 18,
-            category: "BOOTS",
-            tags: ["deal"],
-            sizes: [40, 41, 42, 43, 44],
-            images: puma,
-            colorVariants: [puma]
-        },
-        {
-            id: 7,
-            name: "Goalkeeper Gloves Professional",
-            price: 89.99,
-            category: "GLOVES",
-            tags: ["new"],
-            sizes: [7, 8, 9, 10, 11],
-            images: adidasgloves,
-            colorVariants: [adidasgloves, adidaspredator]
-        },
-        {
-            id: 8,
-            name: "Futsal Shoes Lightweight",
-            price: 129.99,
-            category: "GLOVES",
-            tags: ["new"],
-            sizes: [6, 7, 8, 9],
-            images: adidaspredator,
-            colorVariants: [adidaspredator, adidasgloves]
-        },
-        {
-            id: 9,
-            name: "Football Socks Pack",
-            price: 24.99,
-            category: "ACCESSORIES",
-            tags: ["new"],
-            sizes: ["S", "M", "L", "XL"],
-            images: ulsports,
-            colorVariants: [ulsports]
-        },
-        {
-            id: 10,
-            name: "Goalkeeper Gloves Professional",
-            price: 89.99,
-            category: "GLOVES",
-            tags: ["new"],
-            sizes: [7, 8, 9, 10],
-            images: adidasgloves,
-            colorVariants: [adidasgloves, adidaspredator]
-        },
-        {
-            id: 11,
-            name: "Futsal Shoes Lightweight",
-            price: 129.99,
-            category: "GLOVES",
-            tags: [],
-            sizes: [6, 7, 8, 9, 10],
-            images: adidaspredator,
-            colorVariants: [adidaspredator, adidasgloves]
-        },
-        {
-            id: 12,
-            name: "Football Socks Pack",
-            price: 24.99,
-            category: "ACCESSORIES",
-            tags: ["new", "deal"],
-            originalPrice: 34.99,
-            discount: 29,
-            sizes: ["S", "M", "L"],
-            images: ulsports,
-            colorVariants: [ulsports]
-        }
-    ];
+    const dispatch = useDispatch();
+    const { mostPopularProducts, loading, error } = useSelector(state => state.products);
+    
+    // Fetch most popular products on mount
+    useEffect(() => {
+        dispatch(fetchMostPopularProducts(12)); // Fetch 12 products
+    }, [dispatch]);
+    
+    // Use products from Redux or empty array
+    const products = mostPopularProducts || [];
     
     // State declarations
     const [isDragging, setIsDragging] = useState(false);
@@ -159,7 +26,7 @@ const MostPopular = () => {
     const animationRef = useRef(null);
     const scrollTimeoutRef = useRef(null);
     
-    const categories = ['BOOTS', 'GLOVES', 'FUTSAL', 'ACCESSORIES'];
+    const categories = ['BOOTS', 'GLOVES', 'ACCESSORIES'];
     
     // Function to detect which product is at the leftmost position
     const updateCategoryBasedOnScroll = useCallback(() => {
@@ -296,7 +163,7 @@ const MostPopular = () => {
         const firstProduct = products.find(product => product.category === category);
         if (firstProduct && scrollContainerRef.current) {
             setTimeout(() => {
-                const firstElement = scrollContainerRef.current.querySelector(`[data-product-id="${firstProduct.id}"]`);
+                const firstElement = scrollContainerRef.current.querySelector(`[data-product-id="${firstProduct._id}"]`);
                 if (firstElement) {
                     firstElement.scrollIntoView({
                         behavior: 'smooth',
@@ -309,18 +176,73 @@ const MostPopular = () => {
 
     // Helper function to get tag style
     const getTagStyle = (tag) => {
-        switch(tag) {
-            case 'deal':
-                return 'border-[#f9bc60] text-[#f9bc60]';
-            case 'new':
-                return 'border-red-500 text-red-500';
-            default:
-                return 'border-[#abd1c6] text-[#abd1c6]';
+        const tagLower = tag.toLowerCase();
+        if (tagLower === 'deal') {
+            return 'border-[#f9bc60] text-[#f9bc60]';
+        } else if (tagLower === 'new') {
+            return 'border-red-500 text-red-500';
         }
+        return 'border-[#abd1c6] text-[#abd1c6]';
     };
 
     // Check if product has deal tag
-    const hasDealTag = (tags) => tags.includes('deal');
+    const hasDealTag = (tags) => {
+        if (!tags || !Array.isArray(tags)) return false;
+        return tags.some(tag => tag.toLowerCase() === 'deal');
+    };
+
+    // Get first image from product
+    const getProductImage = (product) => {
+        if (product.images && product.images.length > 0) {
+            return product.images[0];
+        }
+        return '/placeholder-product.jpg'; // Fallback image
+    };
+
+    // Get available sizes for product
+    const getProductSizes = (product) => {
+        if (product.category === 'ACCESSORIES' && product.accessoryStock) {
+            return Object.keys(product.accessoryStock);
+        } else if (product.colorVariants && product.colorVariants.length > 0) {
+            // Get unique sizes from all color variants
+            const sizes = new Set();
+            product.colorVariants.forEach(variant => {
+                if (variant.sizeStock) {
+                    variant.sizeStock.forEach(sizeItem => {
+                        sizes.add(sizeItem.size);
+                    });
+                }
+            });
+            return Array.from(sizes);
+        }
+        return [];
+    };
+
+    if (loading) {
+        return (
+            <section className="py-10">
+                <div className="container mx-auto px-4">
+                    <h2 className='text-center text-3xl text-[#001e1d] font-bold mb-8'>MOST POPULAR</h2>
+                    <div className="flex justify-center items-center h-64">
+                        <div className="text-[#004643] text-xl">Loading most popular products...</div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    if (error) {
+        return (
+            <section className="py-10">
+                <div className="container mx-auto px-4">
+                    <h2 className='text-center text-3xl text-[#001e1d] font-bold mb-8'>MOST POPULAR</h2>
+                    <div className="flex justify-center items-center h-64">
+                        <div className="text-red-500 text-xl">Error: {error}</div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
   return (
     <section className="py-10">
@@ -367,17 +289,22 @@ const MostPopular = () => {
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseLeave}>
-                {products.map((product) => (
+                {products.map((product) => {
+                    const productImage = getProductImage(product);
+                    const productSizes = getProductSizes(product);
+                    const productHasDeal = hasDealTag(product.tags);
+                    
+                    return (
                     <Link 
-                        to={`/product/${product.id}`} 
-                        key={product.id} 
-                        data-product-id={product.id}
+                        to={`/product/${product._id}`} 
+                        key={product._id} 
+                        data-product-id={product._id}
                         className="w-[200px] min-w-[200px] md:w-[280px] md:min-w-[280px] lg:min-w-[320px] h-[400px] md:h-[500px] rounded-lg shadow-sm overflow-hidden group relative bg-white block flex-shrink-0"
                     >
                         {/*Image */}
                         <div className="absolute top-0 left-0 right-0 h-[300px] md:h-[400px]">
                             <img 
-                                src={product.images} 
+                                src={productImage} 
                                 alt={product.name}
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 draggable="false"
@@ -390,7 +317,7 @@ const MostPopular = () => {
                             <div>
                                 {/* Tags */}
                                 <div className="flex gap-1 mb-1 flex-wrap min-h-[24px]">
-                                    {product.tags.map((tag, index) => (
+                                    {product.tags && product.tags.map((tag, index) => (
                                         <span 
                                             key={index}
                                             className={`
@@ -410,7 +337,7 @@ const MostPopular = () => {
                                 
                                 {/* Price section */}
                                 <div>
-                                    {hasDealTag(product.tags) && product.originalPrice ? (
+                                    {productHasDeal && product.originalPrice ? (
                                         <div className="flex items-baseline gap-2">
                                             <p className="font-bold  text-[#f9bc60]">${product.price}</p>
                                             <p className="font-light text-[#abd1c6] line-through text-xs">${product.originalPrice}</p>
@@ -422,6 +349,15 @@ const MostPopular = () => {
                                         <p className="font-bold text-[#fffffe]">${product.price}</p>
                                     )}
                                 </div>
+                                
+                                {/* Sales count badge - only show if there are sales */}
+                                {product.totalSold > 0 && (
+                                    <div className="mt-1">
+                                        <span className="text-xs text-[#abd1c6] font-medium">
+                                            🔥 {product.totalSold} sold
+                                        </span>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Popup: Color variants & Sizes*/}
@@ -431,14 +367,14 @@ const MostPopular = () => {
                                         {/* Color variant images */}
                                         {product.colorVariants && product.colorVariants.length > 1 && (
                                             <div className="flex gap-2">
-                                                {product.colorVariants.map((variant, index) => (
+                                                {product.colorVariants.slice(0, 4).map((variant, index) => (
                                                     <div 
                                                         key={index}
                                                         className="w-8 h-8 rounded-md overflow-hidden border border-gray-200 hover:border-[#f9bc60] transition-colors cursor-pointer"
                                                     >
                                                         <img 
-                                                            src={variant} 
-                                                            alt={`Color ${index + 1}`}
+                                                            src={variant.images && variant.images[0] ? variant.images[0] : productImage} 
+                                                            alt={`${variant.color || 'Color'} ${index + 1}`}
                                                             className="w-full h-full object-cover"
                                                         />
                                                     </div>
@@ -447,9 +383,9 @@ const MostPopular = () => {
                                         )}
                                         
                                         {/* Sizes */}
-                                        {product.sizes && product.sizes.length > 0 && (
+                                        {productSizes.length > 0 && (
                                             <div className="flex flex-wrap gap-1">
-                                                {product.sizes.map((size, index) => (
+                                                {productSizes.slice(0, 8).map((size, index) => (
                                                     <span 
                                                         key={index}
                                                         className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded hover:bg-[#f9bc60] hover:text-[#001e1d] transition-colors cursor-pointer"
@@ -464,7 +400,8 @@ const MostPopular = () => {
                             </div>
                         </div>
                     </Link>
-                ))}
+                    );
+                })}
             </div>
         </div>
     </section>

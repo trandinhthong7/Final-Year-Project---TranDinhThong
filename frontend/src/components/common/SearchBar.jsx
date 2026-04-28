@@ -33,7 +33,7 @@ const SearchBar = () => {
                         {/* search icon */}
                         <button 
                         type="submit" 
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#001e1d] hover:text-[#00948d]">
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#001e1d] hover:scale-110">
                             <IoSearchOutline className="h-6 w-6"/>
                         </button>
                     </div>
@@ -41,13 +41,13 @@ const SearchBar = () => {
                     {/* close icon */}
                     <button 
                     type="button" 
-                    className="ml-2 text-[#abd1c6] hover:text-[#00948d]" onClick={handleSearchToggle}>
+                    className="ml-2 text-[#abd1c6] hover:scale-110" onClick={handleSearchToggle}>
                         <IoCloseOutline className="h-6 w-6"/>
                     </button>
                 </form>
             ) : (
                 <button onClick={handleSearchToggle} >
-                    <IoSearchOutline className="text-[#001e1d] hover:text-[#00948d] h-6 w-6"/>
+                    <IoSearchOutline className="text-[#001e1d] hover:scale-110 h-6 w-6"/>
                  </button> 
                 )}
         </div>
