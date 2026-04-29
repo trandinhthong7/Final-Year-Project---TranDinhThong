@@ -12,8 +12,14 @@ const PaypalButton = ({ amount, onSuccess, onError }) => {
     try {
       const token = JSON.parse(localStorage.getItem("userToken"));
       
+      if (!token) {
+        throw new Error("Please login to continue with payment");
+      }
+
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:9000';
+      
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/paypal/create-order`,
+        `${backendUrl}/api/paypal/create-order`,
         { amount },
         {
           headers: {
@@ -25,8 +31,9 @@ const PaypalButton = ({ amount, onSuccess, onError }) => {
       
       return response.data.orderID;
     } catch (error) {
-      console.error("Error creating PayPal order:", error);
-      onError(error);
+      console.error("Error creating PayPal order:", error.response?.data || error.message);
+      const errorMessage = error.response?.data?.message || error.message || "Failed to create PayPal order";
+      onError(new Error(errorMessage));
       throw error;
     }
   };
@@ -35,8 +42,14 @@ const PaypalButton = ({ amount, onSuccess, onError }) => {
     try {
       const token = JSON.parse(localStorage.getItem("userToken"));
       
+      if (!token) {
+        throw new Error("Please login to continue with payment");
+      }
+
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:9000';
+      
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/paypal/capture-order/${data.orderID}`,
+        `${backendUrl}/api/paypal/capture-order/${data.orderID}`,
         {},
         {
           headers: {
@@ -48,8 +61,9 @@ const PaypalButton = ({ amount, onSuccess, onError }) => {
       
       onSuccess(response.data);
     } catch (error) {
-      console.error("Error capturing PayPal order:", error);
-      onError(error);
+      console.error("Error capturing PayPal order:", error.response?.data || error.message);
+      const errorMessage = error.response?.data?.message || error.message || "Failed to capture PayPal payment";
+      onError(new Error(errorMessage));
     }
   };
 
