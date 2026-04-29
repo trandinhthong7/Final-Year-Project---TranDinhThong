@@ -260,7 +260,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // @route   GET /api/products/:id/related
-// @desc    Get related products (You May Also Like)
+// @desc    Get related products (You May Also Like) - Always returns 4 products
 // @access  Public
 router.get("/:id/related", async (req, res) => {
     try {
@@ -270,10 +270,14 @@ router.get("/:id/related", async (req, res) => {
             return res.status(404).json({ message: "Product not found" });
         }
 
-        // Find related products with priority:
+        // Check if product has deal tag
+        const productHasDeal = product.tags && product.tags.some(tag => tag.toLowerCase() === 'deal');
+
+        // Find related products with smart priority:
         // 1. Same category AND same brand (highest priority)
-        // 2. Same category (medium priority)
-        // 3. Random published products (fallback)
+        // 2. Same category AND similar price range (medium-high priority)
+        // 3. Same category (medium priority)
+        // 4. Random published products (fallback)
         
         const relatedProducts = await Product.aggregate([
             {
@@ -287,24 +291,64 @@ router.get("/:id/related", async (req, res) => {
                     // Calculate relevance score
                     relevanceScore: {
                         $add: [
-                            // +10 points for same category
+                            // +20 points for same category AND same brand
+                            { 
+                                $cond: [
+                                    { 
+                                        $and: [
+                                            { $eq: ["$category", product.category] },
+                                            { $eq: ["$brand", product.brand] }
+                                        ]
+                                    }, 
+                                    20, 
+                                    0
+                                ] 
+                            },
+                            // +10 points for same category only
                             { $cond: [{ $eq: ["$category", product.category] }, 10, 0] },
-                            // +5 points for same brand
-                            { $cond: [{ $eq: ["$brand", product.brand] }, 5, 0] }
+                            // +5 points for similar price range (within 20% of original price)
+                            { 
+                                $cond: [
+                                    {
+                                        $and: [
+                                            { $gte: ["$price", product.price * 0.8] },
+                                            { $lte: ["$price", product.price * 1.2] }
+                                        ]
+                                    },
+                                    5,
+                                    0
+                                ]
+                            }
                         ]
-                    }
+                    },
+                    // Add random factor for products with same score
+                    randomFactor: { $rand: {} }
                 }
             },
             {
                 $sort: {
                     relevanceScore: -1, // Sort by relevance first
-                    createdAt: -1 // Then by newest
+                    randomFactor: -1 // Then by random for variety
                 }
             },
             {
-                $limit: 4
+                $limit: 4 // Always return exactly 4 products
             }
         ]);
+
+        // If we don't have 4 products, fill with random ones
+        if (relatedProducts.length < 4) {
+            const additionalProducts = await Product.find({
+                _id: { 
+                    $ne: product._id,
+                    $nin: relatedProducts.map(p => p._id)
+                },
+                isPublished: true
+            })
+            .limit(4 - relatedProducts.length);
+            
+            relatedProducts.push(...additionalProducts);
+        }
 
         res.json(relatedProducts);
     } catch (error) {

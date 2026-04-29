@@ -1,20 +1,32 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
 
 const SearchBar = () => {
-
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [isOpen, setIsOpen] = useState(false);
+    
     const handleSearchToggle = () => {
         setIsOpen(!isOpen);
+        if (!isOpen) {
+            // Focus input when opening
+            setTimeout(() => {
+                document.getElementById('search-input')?.focus();
+            }, 100);
+        }
     };
+    
     const handleSearch = (e) => {
         e.preventDefault();
-        // Implement search logic here
-        console.log("Searching for:", searchTerm);
-        setSearchTerm("");
-        setIsOpen(false);
-    }
+        if (searchTerm.trim()) {
+            // Navigate to search results page
+            navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+            setSearchTerm("");
+            setIsOpen(false);
+        }
+    };
+    
     return (
         <div className={`flex items-center justify-center w-full transition-all duration-300 
             ${isOpen ? "absolute top-0 left-0 w-full bg-[#004643] h-21 md:h-22 z-50" : "w-auto"}`}>
@@ -23,8 +35,9 @@ const SearchBar = () => {
                 <form onSubmit={handleSearch} className="relative flex items-center justify-center w-full">
                     <div className="relative w-1/2">
                         <input 
+                        id="search-input"
                         type="text" 
-                        placeholder="Search..." 
+                        placeholder="Search for boots, gloves, accessories..." 
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="bg-[#abd1c6] px-4 py-2 pl-2 pr-12 rounded-lg focus:outline-none w-full placeholder:text-[#004643]"

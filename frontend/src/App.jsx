@@ -25,6 +25,7 @@ import AddressPage from "./pages/AddressPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import SizeGuidePage from "./pages/SizeGuidePage";
+import SearchResultsPage from "./pages/SearchResultsPage";
 
 import {Provider} from "react-redux";
 import store from "./redux/store";
@@ -89,6 +90,7 @@ const App = () => {
               <Route path="contact" element={<ContactPage/>}/>
               <Route path="about" element={<AboutPage/>}/>
               <Route path="size-guide" element={<SizeGuidePage/>}/>
+              <Route path="search" element={<SearchResultsPage/>}/>
             </Route>
             <Route path="/admin" element={<ProtectedRoute adminOnly={true}><AdminLayout/></ProtectedRoute>}>{/*Admin Layout*/}
               <Route index element={<AdminHomePage/>}/>

@@ -32,7 +32,6 @@ app.use(cors({
         'http://localhost:5173', // Local development
         'http://localhost:9000',
         'https://tdt-stadium-final.vercel.app', // Production frontend
-        'https://final-year-project-tfe.vercel.app', // Old frontend domain
         'https://final-year-project-tran-dinh-thong-fd66246ek.vercel.app' // Backend domain (for testing)
     ],
     credentials: true,
