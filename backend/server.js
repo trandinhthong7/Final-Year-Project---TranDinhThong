@@ -19,12 +19,25 @@ const productAdminRoutes = require("./routes/productAdminRoutes");
 const adminOrderRoutes = require("./routes/adminOrderRoutes");
 const addressRoutes = require("./routes/addressRoutes");
 const paypalRoutes = require("./routes/paypalRoutes");
+const chatbotRoutes = require("./routes/chatbotRoutes");
+const contactRoutes = require("./routes/contactRoutes");
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware 
-app.use(cors());
+app.use(cors({
+    origin: [
+        'http://localhost:5173', // Local development
+        'http://localhost:9000',
+        'https://final-year-project-tfe.vercel.app', // Your frontend domain
+        'https://final-year-project-tran-dinh-thong-fd66246ek.vercel.app' // Your backend domain (for testing)
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 // Increase payload size limit for base64 images (50MB)
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -46,6 +59,9 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/addresses', addressRoutes);
 app.use('/api/paypal', paypalRoutes);
+app.use('/api/chat', chatbotRoutes);
+app.use('/api/contact', contactRoutes);
+
 
 //Admin routes
 app.use('/api/admin/users', adminRoutes);

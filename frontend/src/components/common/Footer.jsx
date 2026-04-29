@@ -66,10 +66,10 @@ const Footer = () => {
             <div>
                 <h3 className="text-lg text-[#001e1d] mb-3 font-bold" >Shop</h3>
                 <ul className="text-[#004643] space-y-2 text-sm">
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Messi Boots</Link></li>
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Lamine Yamal Boots</Link></li>
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Ronaldo Boots</Link></li>
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Neymar Boots</Link></li>
+                    <li><Link to="/collections/boots?brand=&typeOfoutsole=&age=&material=&player=Lionel+Messi&size=&color=&tags=&accessoryType=&minPrice=20&maxPrice=500" className="hover:text-[#00948d] transition-colors">Messi Boots</Link></li>
+                    <li><Link to="/collections/boots?brand=&typeOfoutsole=&age=&material=&player=Lamine+Yamal&size=&color=&tags=&accessoryType=&minPrice=20&maxPrice=500" className="hover:text-[#00948d] transition-colors">Lamine Yamal Boots</Link></li>
+                    <li><Link to="/collections/boots?brand=&typeOfoutsole=&age=&material=&player=Cristiano+Ronaldo&size=&color=&tags=&accessoryType=&minPrice=20&maxPrice=500" className="hover:text-[#00948d] transition-colors">Ronaldo Boots</Link></li>
+                    <li><Link to="/collections/boots?brand=&typeOfoutsole=&age=&material=&player=Neymar&size=&color=&tags=&accessoryType=&minPrice=20&maxPrice=500" className="hover:text-[#00948d] transition-colors">Neymar Boots</Link></li>
                 </ul>
             </div>
 
@@ -77,10 +77,10 @@ const Footer = () => {
             <div>
                 <h3 className="text-lg text-[#001e1d] mb-3 font-bold">Support</h3>
                 <ul className="text-[#004643] space-y-2 text-sm">
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Contact Us</Link></li>
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">About Us</Link></li>
+                    <li><Link to="/contact" className="hover:text-[#00948d] transition-colors">Contact Us</Link></li>
+                    <li><Link to="/about" className="hover:text-[#00948d] transition-colors">About Us</Link></li>
                     <li><Link to="#" className="hover:text-[#00948d] transition-colors">FAQs</Link></li>
-                    <li><Link to="#" className="hover:text-[#00948d] transition-colors">Boot size conversion charts</Link></li>
+                    <li><Link to="/size-guide" className="hover:text-[#00948d] transition-colors">Boot size conversion charts</Link></li>
                 </ul>
             </div>
 

@@ -169,6 +169,11 @@ const productSchema = new mongoose.Schema({
         min: 0,
         default: 0,
     },
+    // AI chatbot
+    embedding: {
+        type: [Number],
+        default: []
+    }
 }, { timestamps: true });
 
 // Auto-calculate price before saving

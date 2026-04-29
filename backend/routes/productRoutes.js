@@ -6,24 +6,21 @@ const { protect } = require("../Middleware/authMiddleware");
 const router = express.Router();
 
 // @route GET /api/products/most-popular
-// @desc Get most popular products based on sales, fallback to newest if no sales
+// @desc Get most popular products (3-5 per category: boots, gloves, accessories)
 // @access Public
 router.get("/most-popular", async (req, res) => {
     try {
-        const limit = parseInt(req.query.limit) || 12;
+        const itemsPerCategory = 5; // 3-5 items per category
 
         // Aggregate orders to find most sold products
         const popularProducts = await Order.aggregate([
-            // Unwind the orderItem array to work with individual items
             { $unwind: "$orderItem" },
-            // Group by productId and sum quantities
             {
                 $group: {
                     _id: "$orderItem.productId",
                     totalSold: { $sum: "$orderItem.quantity" }
                 }
             },
-            // Sort by total sold (descending)
             { $sort: { totalSold: -1 } }
         ]);
 
@@ -33,49 +30,47 @@ router.get("/most-popular", async (req, res) => {
             salesMap[p._id.toString()] = p.totalSold;
         });
 
-        // If we have sales data, get those products first
-        let products = [];
-        
-        if (popularProducts.length > 0) {
-            const productIds = popularProducts.map(p => p._id);
-            products = await Product.find({
-                _id: { $in: productIds },
+        // Get products for each category
+        const categories = ['BOOTS', 'GLOVES', 'ACCESSORIES'];
+        const allProducts = [];
+
+        for (const category of categories) {
+            // Get all published products for this category
+            const categoryProducts = await Product.find({
+                category: category,
                 isPublished: true
             });
-        }
 
-        // If we need more products to reach the limit, fetch additional ones
-        if (products.length < limit) {
-            const excludeIds = products.map(p => p._id);
-            const additionalProducts = await Product.find({
-                _id: { $nin: excludeIds },
-                isPublished: true
-            })
-            .sort({ createdAt: -1 }) // Newest first
-            .limit(limit - products.length);
-            
-            products = [...products, ...additionalProducts];
-        }
-
-        // Add sales count and sort by category order, then by sales
-        const categoryOrder = { 'BOOTS': 1, 'GLOVES': 2, 'ACCESSORIES': 3 };
-        
-        const sortedProducts = products
-            .map(product => ({
+            // Add sales count and check for deal tag
+            const productsWithData = categoryProducts.map(product => ({
                 ...product.toObject(),
-                totalSold: salesMap[product._id.toString()] || 0
-            }))
-            .sort((a, b) => {
-                // First sort by category
-                const categoryDiff = (categoryOrder[a.category] || 999) - (categoryOrder[b.category] || 999);
-                if (categoryDiff !== 0) return categoryDiff;
-                
-                // Then by sales (descending)
-                return b.totalSold - a.totalSold;
-            })
-            .slice(0, limit); // Ensure we don't exceed the limit
+                totalSold: salesMap[product._id.toString()] || 0,
+                hasDeal: product.tags && product.tags.some(tag => tag.toLowerCase() === 'deal')
+            }));
 
-        res.json(sortedProducts);
+            // Sort by: 1) Has deal tag, 2) Total sold, 3) Random
+            const sortedProducts = productsWithData.sort((a, b) => {
+                // First priority: products with "deal" tag
+                if (a.hasDeal && !b.hasDeal) return -1;
+                if (!a.hasDeal && b.hasDeal) return 1;
+                
+                // Second priority: products with sales
+                if (a.totalSold > 0 || b.totalSold > 0) {
+                    return b.totalSold - a.totalSold;
+                }
+                
+                // Third priority: random for products with no sales
+                return Math.random() - 0.5;
+            });
+
+            // Take 3-5 items (random between 3 and 5)
+            const itemCount = Math.floor(Math.random() * 3) + 3; // Random: 3, 4, or 5
+            const selectedProducts = sortedProducts.slice(0, Math.min(itemCount, sortedProducts.length));
+            
+            allProducts.push(...selectedProducts);
+        }
+
+        res.json(allProducts);
     } catch (error) {
         console.error("Error fetching most popular products:", error);
         res.status(500).json({ message: "Server error", error: error.message });

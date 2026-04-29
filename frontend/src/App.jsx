@@ -22,6 +22,9 @@ import EditProductPage from "./components/admin/EditProductPage";
 import OrderManagement from "./components/admin/OrderManagement";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import AddressPage from "./pages/AddressPage";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
+import SizeGuidePage from "./pages/SizeGuidePage";
 
 import {Provider} from "react-redux";
 import store from "./redux/store";
@@ -83,6 +86,9 @@ const App = () => {
               <Route path="order/:id" element={<ProtectedRoute><OrderDetailPage/></ProtectedRoute>}/>
               <Route path="my-orders" element={<ProtectedRoute><MyOrderPage/></ProtectedRoute>}/>
               <Route path="my-addresses" element={<ProtectedRoute><AddressPage/></ProtectedRoute>}/>
+              <Route path="contact" element={<ContactPage/>}/>
+              <Route path="about" element={<AboutPage/>}/>
+              <Route path="size-guide" element={<SizeGuidePage/>}/>
             </Route>
             <Route path="/admin" element={<ProtectedRoute adminOnly={true}><AdminLayout/></ProtectedRoute>}>{/*Admin Layout*/}
               <Route index element={<AdminHomePage/>}/>

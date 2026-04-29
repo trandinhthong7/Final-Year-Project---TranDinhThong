@@ -9,7 +9,7 @@ const MostPopular = () => {
     
     // Fetch most popular products on mount
     useEffect(() => {
-        dispatch(fetchMostPopularProducts(12)); // Fetch 12 products
+        dispatch(fetchMostPopularProducts()); // Backend returns 3-5 items per category
     }, [dispatch]);
     
     // Use products from Redux or empty array

@@ -55,20 +55,18 @@ const NavBar = () => {
     <div>
         <nav className="container mx-auto flex items-center justify-between py-4 px-2">
             {/* Left-Logo  */}
-            <div>
+            <div className="flex-1">
                 <Link to={"/"} className="text-md sm:text-xl font-bold text-[#001e1d] hover:scale-110 mx-3">TDT-Football</Link>
             </div>
             {/* Center - Menu */}
-            <div className="hidden md:flex space-x-6">
+            <div className="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
                 <Link to="" className=" text-[#001e1d] hover:scale-110 text-sm font-medium uppercase">Home</Link>
                 <Link to="/collections/boots" className=" text-[#001e1d] hover:scale-110 text-sm font-medium uppercase">Boots</Link>
                 <Link to="/collections/gloves" className=" text-[#001e1d] hover:scale-110 text-sm font-medium uppercase">Gloves</Link>
                 <Link to="/collections/accessories" className=" text-[#001e1d] hover:scale-110 text-sm font-medium uppercase">Accessories</Link>
-                <Link to="/collections/booking" className=" text-[#001e1d] hover:scale-110 text-sm font-medium uppercase">Booking</Link>
-                <Link to="/collections/academy" className=" text-[#00001e1d4643] hover:scale-110 text-sm font-medium uppercase">Academy</Link>
             </div>
             {/* Right - Icons */}
-            <div className="flex items-center space-x-4 mx-4">
+            <div className="flex items-center space-x-4 mx-4 flex-1 justify-end">
                 {userInfo?.role === "admin" && (
                     <Link to="/admin" className="block bg-[#004643] text-[#fffffe] text-sm px-2 py-1 rounded hover:scale-110 transition-transform font-medium">
                         Admin

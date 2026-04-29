@@ -1,0 +1,637 @@
+[
+  {
+    "name": "Adidas F50 Elite AG Purple",
+    "description": "Lightning-fast boots with Sprintframe 360 outsole for explosive acceleration on artificial grass. Features Fiberskin upper for enhanced ball control.",
+    "originalPrice": 285.00,
+    "discount": 15,
+    "sku": "BOOT-ADIDAS-F50-AG-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "outsole": "Artificial Grass",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Purple",
+        "hexCode": "#800080",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381218/bota-adidas-f50-elite-ag-purple_eximll.jpg"],
+        "sizeStock": [
+          { "size": "39", "stock": 8 },
+          { "size": "40", "stock": 12 },
+          { "size": "41", "stock": 15 },
+          { "size": "42", "stock": 10 },
+          { "size": "43", "stock": 6 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381218/bota-adidas-f50-elite-ag-purple_eximll.jpg"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas F50 Elite LL FG Purple",
+    "description": "Lamine Yamal signature edition with Sprintframe 360 technology. Designed for explosive speed and precision on firm ground.",
+    "originalPrice": 295.00,
+    "discount": 10,
+    "sku": "BOOT-ADIDAS-F50-LL-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Lamine Yamal",
+    "colorVariants": [
+      {
+        "color": "Purple",
+        "hexCode": "#800080",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381218/bota-adidas-f50-elite-ll-fg-purp_kqnbv1.jpg"],
+        "sizeStock": [
+          { "size": "39", "stock": 10 },
+          { "size": "40", "stock": 14 },
+          { "size": "41", "stock": 16 },
+          { "size": "42", "stock": 12 },
+          { "size": "43", "stock": 8 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381218/bota-adidas-f50-elite-ll-fg-purp_kqnbv1.jpg"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas F50 Elite Yamal Unity Edition",
+    "description": "Limited edition Lamine Yamal boots featuring Unity Purple colorway with Lucid Lemon accents. Premium Fiberskin upper for ultimate touch.",
+    "originalPrice": 310.00,
+    "discount": 12,
+    "sku": "BOOT-ADIDAS-F50-YAMAL-001",
+    "category": "BOOTS",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Lamine Yamal",
+    "colorVariants": [
+      {
+        "color": "Purple",
+        "hexCode": "#800080",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-adidas-f50-elite-ll-fglamine-yamal-unity-purple-white-lucid-lemon-0_cpaz5y.webp"],
+        "sizeStock": [
+          { "size": "39", "stock": 6 },
+          { "size": "40", "stock": 10 },
+          { "size": "41", "stock": 12 },
+          { "size": "42", "stock": 9 },
+          { "size": "43", "stock": 5 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-adidas-f50-elite-ll-fglamine-yamal-unity-purple-white-lucid-lemon-0_cpaz5y.webp"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Air Zoom Mercurial Vapor",
+    "description": "Revolutionary Air Zoom unit provides explosive speed and responsiveness. Designed for the fastest players on the pitch.",
+    "originalPrice": 290.00,
+    "discount": 18,
+    "sku": "BOOT-NIKE-AZMV-001",
+    "category": "BOOTS",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["Deal", "Best Seller"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Kylian Mbappe",
+    "colorVariants": [
+      {
+        "color": "Multi",
+        "hexCode": "#FF6B35",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-nike-air-zoom-mercurial-vap_yjemwp.jpg"],
+        "sizeStock": [
+          { "size": "39", "stock": 9 },
+          { "size": "40", "stock": 13 },
+          { "size": "41", "stock": 15 },
+          { "size": "42", "stock": 11 },
+          { "size": "43", "stock": 7 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-nike-air-zoom-mercurial-vap_yjemwp.jpg"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Phantom 6 Low Pro FG",
+    "description": "Low-cut Phantom with Gripknit technology for enhanced ball control. Perfect for technical players who demand precision.",
+    "originalPrice": 270.00,
+    "discount": 20,
+    "sku": "BOOT-NIKE-PH6-001",
+    "category": "BOOTS",
+    "brand": "Nike",
+    "age": ["Adult"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-nike-phantom-6-low-pro-fg-a_bgwxr4.jpg"],
+        "sizeStock": [
+          { "size": "39", "stock": 7 },
+          { "size": "40", "stock": 11 },
+          { "size": "41", "stock": 14 },
+          { "size": "42", "stock": 10 },
+          { "size": "43", "stock": 6 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-nike-phantom-6-low-pro-fg-a_bgwxr4.jpg"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Puma Zukunftige 8 Pro FG/AG",
+    "description": "Future-forward design with adaptive FUZIONFIT compression band. Engineered for creative playmakers.",
+    "originalPrice": 260.00,
+    "discount": 22,
+    "sku": "BOOT-PUMA-ZUK8-001",
+    "category": "BOOTS",
+    "brand": "Puma",
+    "age": ["Adult"],
+    "tags": ["Deal", "New"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "Neymar Jr.",
+    "colorVariants": [
+      {
+        "color": "Blue",
+        "hexCode": "#0000FF",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-puma-zukunftige-8-pro-fg-ag_y3ypwq.jpg"],
+        "sizeStock": [
+          { "size": "39", "stock": 8 },
+          { "size": "40", "stock": 12 },
+          { "size": "41", "stock": 13 },
+          { "size": "42", "stock": 9 },
+          { "size": "43", "stock": 5 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381219/bota-puma-zukunftige-8-pro-fg-ag_y3ypwq.jpg"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Thuong Dinh Classic White",
+    "description": "Vietnamese quality football boots with excellent durability. Perfect for training and casual matches at an affordable price.",
+    "originalPrice": 75.00,
+    "discount": 25,
+    "sku": "BOOT-TD-WHITE-001",
+    "category": "BOOTS",
+    "brand": "Thuong Dinh",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "White",
+        "hexCode": "#FFFFFF",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381220/thuongdinh_uqkm8x.webp"],
+        "sizeStock": [
+          { "size": "37", "stock": 10 },
+          { "size": "38", "stock": 15 },
+          { "size": "39", "stock": 18 },
+          { "size": "40", "stock": 20 },
+          { "size": "41", "stock": 15 },
+          { "size": "42", "stock": 12 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381220/thuongdinh_uqkm8x.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Thuong Dinh Pro Black",
+    "description": "Premium Thuong Dinh boots in classic black. Enhanced comfort and durability for serious players on a budget.",
+    "originalPrice": 80.00,
+    "discount": 30,
+    "sku": "BOOT-TD-BLACK-001",
+    "category": "BOOTS",
+    "brand": "Thuong Dinh",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal"],
+    "outsole": "Firm Ground",
+    "material": "Synthetic",
+    "player": "None",
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381220/thuongdinh_black_mti6eb.webp"],
+        "sizeStock": [
+          { "size": "37", "stock": 12 },
+          { "size": "38", "stock": 16 },
+          { "size": "39", "stock": 20 },
+          { "size": "40", "stock": 22 },
+          { "size": "41", "stock": 18 },
+          { "size": "42", "stock": 14 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381220/thuongdinh_black_mti6eb.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas Copa Match Fingersave Black",
+    "description": "Professional goalkeeper gloves with Fingersave technology for maximum protection. URG 2.0 latex palm provides exceptional grip.",
+    "originalPrice": 125.00,
+    "discount": 18,
+    "sku": "GLOVE-ADIDAS-COPA-001",
+    "category": "GLOVES",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["New", "Best Seller"],
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-copa-match-fingersave-black-0_lwsxob.webp"],
+        "sizeStock": [
+          { "size": "7", "stock": 5 },
+          { "size": "8", "stock": 8 },
+          { "size": "9", "stock": 12 },
+          { "size": "10", "stock": 14 },
+          { "size": "11", "stock": 8 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-copa-match-fingersave-black-0_lwsxob.webp"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Adidas Predator Competition Lucid Lemon",
+    "description": "Eye-catching Predator gloves with high-visibility Lucid Lemon colorway. Soft grip+ palm for reliable catching in all conditions.",
+    "originalPrice": 110.00,
+    "discount": 15,
+    "sku": "GLOVE-ADIDAS-PRED-002",
+    "category": "GLOVES",
+    "brand": "Adidas",
+    "age": ["Adult", "Kids"],
+    "tags": ["New"],
+    "colorVariants": [
+      {
+        "color": "Yellow",
+        "hexCode": "#FFFF00",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-predator-competition-lucid-lemon-white-black-0_i0s2pq.webp"],
+        "sizeStock": [
+          { "size": "6", "stock": 4 },
+          { "size": "7", "stock": 7 },
+          { "size": "8", "stock": 10 },
+          { "size": "9", "stock": 12 },
+          { "size": "10", "stock": 9 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-predator-competition-lucid-lemon-white-black-0_i0s2pq.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Uhlsport Fangmaschine Cybertec Starter Soft",
+    "description": "Youth goalkeeper gloves with Soft Grip foam. Perfect for young keepers developing their skills with comfortable protection.",
+    "originalPrice": 95.00,
+    "discount": 20,
+    "sku": "GLOVE-UHL-FANG-001",
+    "category": "GLOVES",
+    "brand": "Uhlsport",
+    "age": ["Kids"],
+    "tags": ["Deal"],
+    "colorVariants": [
+      {
+        "color": "Multi",
+        "hexCode": "#FF6B35",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0_f3mujq.webp"],
+        "sizeStock": [
+          { "size": "4", "stock": 8 },
+          { "size": "5", "stock": 12 },
+          { "size": "6", "stock": 15 },
+          { "size": "7", "stock": 10 },
+          { "size": "8", "stock": 6 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0_f3mujq.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas Copa Pro Goalkeeper Gloves",
+    "description": "Professional-grade gloves with URG 2.0 latex palm. Negative cut for snug fit and maximum ball contact.",
+    "originalPrice": 115.00,
+    "discount": 12,
+    "sku": "GLOVE-ADIDAS-COPA-002",
+    "category": "GLOVES",
+    "brand": "Adidas",
+    "age": ["Adult"],
+    "tags": ["New"],
+    "colorVariants": [
+      {
+        "color": "Black",
+        "hexCode": "#000000",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-copa-match-fingersave-black-0_lwsxob.webp"],
+        "sizeStock": [
+          { "size": "8", "stock": 7 },
+          { "size": "9", "stock": 11 },
+          { "size": "10", "stock": 13 },
+          { "size": "11", "stock": 9 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-adidas-copa-match-fingersave-black-0_lwsxob.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Uhlsport Cybertec Training Gloves",
+    "description": "Durable training gloves with Soft Grip foam. Ideal for practice sessions and youth development.",
+    "originalPrice": 85.00,
+    "discount": 25,
+    "sku": "GLOVE-UHL-CYBER-001",
+    "category": "GLOVES",
+    "brand": "Uhlsport",
+    "age": ["Adult", "Kids"],
+    "tags": ["Deal"],
+    "colorVariants": [
+      {
+        "color": "Multi",
+        "hexCode": "#FF6B35",
+        "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0_f3mujq.webp"],
+        "sizeStock": [
+          { "size": "7", "stock": 9 },
+          { "size": "8", "stock": 13 },
+          { "size": "9", "stock": 15 },
+          { "size": "10", "stock": 11 }
+        ]
+      }
+    ],
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381263/guantes-uhlsport-fangmaschine-cybertec-starter-soft-nino-multicolor-0_f3mujq.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas UCL Pro Match Ball",
+    "description": "Official UEFA Champions League match ball with thermally bonded seamless surface. FIFA Quality Pro certified.",
+    "originalPrice": 155.00,
+    "discount": 18,
+    "sku": "ACC-BALL-ADIDAS-UCL-002",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Adidas",
+    "tags": ["New", "Best Seller"],
+    "accessoryStock": {
+      "5": 25
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/adidas_ball_grainr.jpg"],
+    "isPublished": true,
+    "isBestSeller": true,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Premier League Strike Ball",
+    "description": "Official Premier League training ball with high-contrast graphics. Durable machine-stitched construction.",
+    "originalPrice": 38.00,
+    "discount": 12,
+    "sku": "ACC-BALL-NIKE-PL-002",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "3": 18,
+      "4": 28,
+      "5": 35
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/nike_ball_cfz6c4.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Puma teamFINAL Pro Ball",
+    "description": "Professional training ball with 32-panel design. Excellent air retention and consistent flight path.",
+    "originalPrice": 32.00,
+    "discount": 20,
+    "sku": "ACC-BALL-PUMA-TF-002",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Puma",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "3": 22,
+      "4": 35,
+      "5": 40
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/puma_ball_xvyiar.avif"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Adidas Tiro League Training Ball",
+    "description": "High-quality training ball with machine-stitched construction. Perfect for team practice and recreational play.",
+    "originalPrice": 28.00,
+    "discount": 15,
+    "sku": "ACC-BALL-ADIDAS-TIRO-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Adidas",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "3": 20,
+      "4": 32,
+      "5": 38
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/adidas_ball_grainr.jpg"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Match Football Size 5",
+    "description": "Durable match ball with reinforced rubber bladder. Designed for consistent performance on all surfaces.",
+    "originalPrice": 35.00,
+    "discount": 10,
+    "sku": "ACC-BALL-NIKE-MATCH-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "4": 25,
+      "5": 30
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/nike_ball_cfz6c4.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Puma King Training Ball",
+    "description": "Classic training ball with traditional 32-panel design. Excellent for practice sessions and skill development.",
+    "originalPrice": 26.00,
+    "discount": 18,
+    "sku": "ACC-BALL-PUMA-KING-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Balls",
+    "brand": "Puma",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "3": 25,
+      "4": 38,
+      "5": 42
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381863/puma_ball_xvyiar.avif"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Nike Squad Crew Football Socks",
+    "description": "Comfortable football socks with cushioned sole and arch support. Moisture-wicking Dri-FIT fabric keeps feet dry during intense play.",
+    "originalPrice": 16.00,
+    "discount": 0,
+    "sku": "ACC-SOCK-NIKE-SQ-002",
+    "category": "ACCESSORIES",
+    "accessoryType": "Socks",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "S": 30,
+      "M": 45,
+      "L": 50,
+      "XL": 35
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381876/nike_socks_ek2mny.png"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Academy Cushioned Socks",
+    "description": "Premium football socks with extra cushioning in high-impact areas. Breathable mesh zones for enhanced ventilation.",
+    "originalPrice": 18.00,
+    "discount": 10,
+    "sku": "ACC-SOCK-NIKE-ACAD-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Socks",
+    "brand": "Nike",
+    "tags": ["New"],
+    "accessoryStock": {
+      "S": 28,
+      "M": 42,
+      "L": 48,
+      "XL": 32
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381876/nike_socks_ek2mny.png"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  },
+  {
+    "name": "Nike Performance Football Socks Pack",
+    "description": "Value pack of 3 pairs of high-performance football socks. Dri-FIT technology and reinforced heel and toe.",
+    "originalPrice": 42.00,
+    "discount": 15,
+    "sku": "ACC-SOCK-NIKE-PACK-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Socks",
+    "brand": "Nike",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "S": 20,
+      "M": 35,
+      "L": 40,
+      "XL": 25
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381876/nike_socks_ek2mny.png"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Soka Pro Grip Tape",
+    "description": "Professional-grade grip tape for enhanced ball control and boot protection. Easy to apply and remove, suitable for all weather conditions.",
+    "originalPrice": 9.00,
+    "discount": 0,
+    "sku": "ACC-TAPE-SOKA-PG-002",
+    "category": "ACCESSORIES",
+    "accessoryType": "Tape",
+    "brand": "Soka",
+    "tags": ["New"],
+    "accessoryStock": {
+      "One Size": 120
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381884/griptape_pwv5bw.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Soka Elite Grip Tape 3-Pack",
+    "description": "Value pack of 3 professional grip tapes. Long-lasting adhesive and weather-resistant material for maximum durability.",
+    "originalPrice": 24.00,
+    "discount": 12,
+    "sku": "ACC-TAPE-SOKA-PACK-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Tape",
+    "brand": "Soka",
+    "tags": ["Deal"],
+    "accessoryStock": {
+      "One Size": 80
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381884/griptape_pwv5bw.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": false
+  },
+  {
+    "name": "Soka Premium Grip Tape",
+    "description": "Premium grip tape with enhanced adhesive technology. Provides superior ball control and protects boots from wear and tear.",
+    "originalPrice": 11.00,
+    "discount": 0,
+    "sku": "ACC-TAPE-SOKA-PREM-001",
+    "category": "ACCESSORIES",
+    "accessoryType": "Tape",
+    "brand": "Soka",
+    "tags": ["New"],
+    "accessoryStock": {
+      "One Size": 100
+    },
+    "images": ["https://res.cloudinary.com/drda04qfl/image/upload/q_auto/f_auto/v1777381884/griptape_pwv5bw.webp"],
+    "isPublished": true,
+    "isBestSeller": false,
+    "isNewCollection": true
+  }
+]
