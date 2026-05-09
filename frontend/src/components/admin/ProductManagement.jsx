@@ -37,12 +37,6 @@ const ProductManagement = () => {
         <div className="max-w-full mx-auto p-6">
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl text-[#001e1d] font-bold">Product Management</h2>
-                <Link
-                    to="/admin/products/new"
-                    className="bg-[#004643] text-[#fffffe] px-6 py-2 rounded-lg hover:scale-105 font-semibold"
-                >
-                    + Add New Product
-                </Link>
             </div>
 
             <div className="overflow-x-auto sm:rounded-lg shadow-md">

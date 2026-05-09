@@ -11,12 +11,12 @@ const UserManagement = () => {
         username: "",
         email: "",
         password: "",
-        role: "user",
+        role: "customer", // Changed from "user" to "customer"
     });
 
     const getStatusColor = (role) => {
         switch (role) {
-            case "user":
+            case "customer":
                 return "bg-[#004643] text-[#fffffe]";
             case "admin":
                 return "bg-[#f9bc60] text-[#001e1d]";
@@ -51,7 +51,7 @@ const UserManagement = () => {
                 username: "",
                 email: "",
                 password: "",
-                role: "user",
+                role: "customer", // Changed from "user" to "customer"
             });
         } catch (error) {
             toast.error(error || "Failed to create user");
@@ -140,7 +140,7 @@ const UserManagement = () => {
                                 onChange={handleChange}
                                 className="w-full p-2 border rounded"
                             >
-                                <option value="user">User</option>
+                                <option value="customer">Customer</option>
                                 <option value="admin">Admin</option>
                             </select>
                         </div>
@@ -186,7 +186,7 @@ const UserManagement = () => {
                                                 )} disabled:opacity-50 disabled:cursor-not-allowed`}
                                             disabled={loading}
                                         >
-                                            <option value="user">User</option>
+                                            <option value="customer">Customer</option>
                                             <option value="admin">Admin</option>
                                         </select>
                                     </td>

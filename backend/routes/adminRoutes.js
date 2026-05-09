@@ -33,7 +33,7 @@ router.post("/", protect, admin, async (req, res) => {
             username,
             email,
             password,
-            role: role || "user"
+            role: role || "customer" // Changed from "user" to "customer"
         });
 
         await user.save();
